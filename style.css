@@ -3410,25 +3410,45 @@ h1, h2, h3, h4, h5, h6 {
 .about-tech-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   margin-top: 20px;
+  max-width: 100%;
 }
 
 .about-tech-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 18px;
+  padding: 8px 14px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-primary);
+  max-width: 100%;
+  word-break: break-word;
 }
 
 .about-tech-badge span {
   color: var(--color-cyan);
+}
+
+/* List formatting in Story & Mechanics cards */
+.about-story-card ul {
+  padding-left: 22px;
+  margin-bottom: 24px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.about-story-card li {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Studio Team Banner Card */
@@ -3436,37 +3456,64 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, rgba(14, 21, 46, 0.9) 0%, rgba(24, 16, 48, 0.9) 100%);
   border: 1px solid rgba(0, 240, 255, 0.25);
   border-radius: var(--radius-lg);
-  padding: 48px;
+  padding: 44px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 36px;
+  gap: 32px;
   flex-wrap: wrap;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .about-team-info {
-  max-width: 620px;
+  max-width: 600px;
+  flex: 1 1 300px;
+  min-width: 0;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .about-team-info h3 {
   font-size: 1.85rem;
   margin-bottom: 12px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .about-team-info p {
   color: var(--text-secondary);
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   line-height: 1.7;
   margin-bottom: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.about-team-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  max-width: 100%;
 }
 
 /* Copy Email Floating Pill with Toast */
 .copy-pill-wrap {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 16px;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  width: 100%;
+}
+
+.copy-pill-wrap .btn {
+  white-space: normal;
+  word-break: break-word;
+  text-align: center;
 }
 
 .copy-email-toast {
@@ -3475,6 +3522,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   min-height: 22px;
   transition: opacity var(--transition-fast);
+  margin-top: 6px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Responsive Breakpoints */
@@ -3497,11 +3547,11 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 650px) {
   .about-hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.15rem;
   }
 
   .about-hero p.lead {
-    font-size: 1.02rem;
+    font-size: 1rem;
   }
 
   .about-stats-grid {
@@ -3509,11 +3559,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .about-story-card {
-    padding: 26px 20px;
+    padding: 24px 18px;
   }
 
   .about-value-card {
-    padding: 24px 20px;
+    padding: 22px 18px;
   }
 
   .craft-gallery-grid,
@@ -3522,9 +3572,36 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .about-team-card {
-    padding: 28px 20px;
+    padding: 26px 18px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 22px;
+  }
+
+  .about-team-info h3 {
+    font-size: 1.45rem;
+  }
+
+  .about-team-info p {
+    font-size: 0.94rem;
+  }
+
+  .copy-pill-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .copy-pill-wrap .btn,
+  .about-team-actions,
+  .about-team-actions .btn {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 0.92rem;
+    white-space: normal;
+    word-break: break-word;
+    justify-content: center;
   }
 
   .roadmap-timeline::before {
@@ -3538,7 +3615,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .roadmap-content {
-    padding: 20px;
+    padding: 18px 16px;
   }
 
   .arrow-interactive-grid {
