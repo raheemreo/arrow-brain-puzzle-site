@@ -2202,42 +2202,62 @@ h1, h2, h3, h4, h5, h6 {
 /* --------------------------------------------------------------------------
    16. Responsive Media Queries
    -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   16. Comprehensive Responsive Design System (Mobile, Tablet, Desktop)
+   -------------------------------------------------------------------------- */
+
+/* Large Tablets & Small Laptops (max-width: 1024px) */
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 2.8rem;
   }
+  
   .rules-simulator-layout {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
+  
   .board-elements-hero-layout {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
+  
   .board-inspector-card {
     position: static;
   }
+  
   .hints-cards-grid {
     grid-template-columns: 1fr;
   }
+  
   .strategies-grid {
     grid-template-columns: 1fr;
   }
+  
   .screenshots-track {
     grid-template-columns: repeat(2, 1fr);
   }
+  
   .contact-grid {
     grid-template-columns: 1fr;
   }
+
+  .chapters-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
 }
 
+/* Tablets & Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
   :root {
     --nav-height: 68px;
   }
 
   .section {
-    padding: 60px 0;
+    padding: 56px 0;
   }
 
+  /* Mobile Navigation Drawer */
   .mobile-toggle {
     display: flex;
   }
@@ -2254,8 +2274,8 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 40px 24px;
-    gap: 24px;
+    padding: 36px 20px;
+    gap: 20px;
     transform: translateX(100%);
     transition: transform var(--transition-normal);
     z-index: 999;
@@ -2267,13 +2287,16 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .nav-link {
-    font-size: 1.25rem;
-    padding: 8px 0;
+    font-size: 1.18rem;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
   }
 
+  /* Hero Section Mobile */
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
     text-align: center;
   }
 
@@ -2282,78 +2305,262 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-title {
-    font-size: 2.4rem;
+    font-size: 2.3rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
   }
 
   .hero-buttons {
     justify-content: center;
+    gap: 12px;
   }
 
   .hero-stats {
     justify-content: center;
+    gap: 16px;
   }
 
-  .screenshots-track {
-    grid-template-columns: 1fr;
-    max-width: 320px;
-    margin: 0 auto;
+  .stat-item {
+    padding: 10px 14px;
   }
 
-  .support-category-list {
-    grid-template-columns: 1fr;
+  .stat-value {
+    font-size: 1.35rem;
   }
 
-  .guide-subsections-grid {
-    grid-template-columns: 1fr;
-  }
-
+  /* How to Play Swipeable Tab Pills Bar */
   .htp-tabs-nav {
-    gap: 8px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 4px 16px 14px;
+    margin: 0 -16px 24px -16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .htp-tabs-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .htp-tab-btn {
-    padding: 9px 16px;
-    font-size: 0.86rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 8px 16px;
+    font-size: 0.84rem;
+  }
+
+  /* Tab 1 Simulator Mobile */
+  .sim-board-card {
+    padding: 20px 16px;
   }
 
   .rule-row-card {
     padding: 14px 16px;
-    gap: 14px;
+    gap: 12px;
   }
 
-  .how-to-play-objective {
+  /* Tab 2 Controls & Hints Mobile */
+  .controls-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .hint-method-card {
     padding: 20px 18px;
   }
 
+  /* Tab 3 Board Elements Mobile */
+  .board-inspector-card {
+    padding: 20px 16px;
+  }
+
+  .interactive-elem-grid {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .elem-showcase-card {
+    padding: 18px 16px;
+  }
+
+  .board-fx-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  /* Tab 4 Chapters Mobile */
+  .chapters-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .chapter-card {
+    padding: 16px 12px;
+  }
+
+  /* Screenshots Mobile */
+  .screenshots-track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  /* Legal Pages & Forms Mobile */
   .legal-content {
-    padding: 28px 20px;
+    padding: 28px 18px;
   }
 
   .legal-header h1 {
-    font-size: 2.1rem;
+    font-size: 2rem;
   }
 
   .cta-banner {
-    padding: 40px 20px;
+    padding: 36px 18px;
   }
 
   .cta-banner h2 {
-    font-size: 2rem;
+    font-size: 1.85rem;
+  }
+
+  /* Footer Mobile */
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
   }
 }
 
+/* Small Smartphone Devices (max-width: 480px) */
 @media (max-width: 480px) {
+  :root {
+    --nav-height: 64px;
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+
+  .section-tag {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+  }
+
+  .section-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .hero {
+    padding: 36px 0 60px;
+  }
+
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
+
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 0.95rem;
   }
-  .btn {
+
+  .hero-buttons {
+    flex-direction: column;
     width: 100%;
   }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
   .btn-lg {
-    padding: 14px 20px;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .stat-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Features Grid 1-column */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Tab 2 Cooldown Ladder 1-column */
+  .cooldown-ladder-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /* Tab 3 Board FX 1-column */
+  .board-fx-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Screenshots 1-column centered */
+  .screenshots-track {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  /* Simulator Board Controls Full Width */
+  .sim-controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sim-controls .btn {
+    width: 100%;
+  }
+
+  .stuck-modal-alert-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    padding: 14px;
+  }
+}
+
+/* Extra Small Devices (max-width: 360px) */
+@media (max-width: 360px) {
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .btn-nav {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+  }
+
+  .hero-title {
+    font-size: 1.65rem;
+  }
+
+  .chapters-grid {
+    grid-template-columns: 1fr;
   }
 }
 
