@@ -13,8 +13,10 @@ Once deployed to GitHub Pages, the public URLs for your store listings and app s
 | Resource | Public Live URL | Where to Use |
 | :--- | :--- | :--- |
 | **Website Homepage** | `https://raheemreo.github.io/arrow-brain-puzzle-site/` | Store Listing Website URL, Socials |
+| **About Us** | `https://raheemreo.github.io/arrow-brain-puzzle-site/about.html` | Studio Profile, Mission, Engineering & Philosophy |
 | **Privacy Policy** | `https://raheemreo.github.io/arrow-brain-puzzle-site/privacy.html` | Google Play Console &rarr; App Content &rarr; Privacy Policy, In-App Settings |
 | **Terms of Service** | `https://raheemreo.github.io/arrow-brain-puzzle-site/terms.html` | In-App Terms link, Google Play store description |
+| **Legal Disclaimer** | `https://raheemreo.github.io/arrow-brain-puzzle-site/disclaimer.html` | In-App Disclaimer / Legal notices, Website Footer |
 | **Data Deletion Policy** | `https://raheemreo.github.io/arrow-brain-puzzle-site/data-deletion.html` | Google Play Console Data Safety (Data deletion request URL) |
 | **Player Support** | `https://raheemreo.github.io/arrow-brain-puzzle-site/contact.html` | Store Listing Support URL, In-App Help button |
 
@@ -26,8 +28,10 @@ Once deployed to GitHub Pages, the public URLs for your store listings and app s
 arrow_puzzle_website/
 │
 ├── index.html          # Main landing page (Hero, Demo, Features, How to Play, Screenshots, Play Store CTA)
+├── about.html          # Studio & Game Story, Philosophy, Engineering, and Values
 ├── privacy.html        # Google Play Data Safety compliant Privacy Policy
 ├── terms.html          # Terms of Service (Virtual currency, Hints, Rewarded ads disclosures)
+├── disclaimer.html     # Comprehensive Legal Disclaimer (Entertainment notice, AdMob, In-game economy)
 ├── data-deletion.html  # Google Play compliant User Data Deletion Request page
 ├── contact.html        # Support page with diagnostic email template and direct mailto link
 ├── 404.html            # Custom game-themed 404 page ("This arrow went the wrong way")
@@ -134,6 +138,7 @@ The website showcases 8 real in-game screenshots representing key features of Ar
 3. **In-App Policy & Support Links:**
    - In your Flutter/Android app's Settings screen, link your Privacy button directly to `https://raheemreo.github.io/arrow-brain-puzzle-site/privacy.html`.
    - Link your Terms button to `https://raheemreo.github.io/arrow-brain-puzzle-site/terms.html`.
+   - Link your Disclaimer button to `https://raheemreo.github.io/arrow-brain-puzzle-site/disclaimer.html`.
    - Link your Support button to `https://raheemreo.github.io/arrow-brain-puzzle-site/contact.html`.
 
 ---
