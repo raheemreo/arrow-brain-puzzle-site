@@ -460,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section[id]');
   const navLinkItems = document.querySelectorAll('.nav-menu a.nav-link');
 
-  if (sections.length > 0 && navLinkItems.length > 0 && window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/')) {
+  if (sections.length > 0 && navLinkItems.length > 0 && (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/'))) {
     const observerOptions = {
       root: null,
       rootMargin: '-20% 0px -60% 0px',
@@ -483,5 +483,115 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     sections.forEach(sec => sectionObserver.observe(sec));
+  }
+
+  // 9. Screenshots Interactive Slide Carousel
+  const sliderViewport = document.getElementById('screenshotsViewport');
+  const sliderTrack = document.getElementById('screenshotsSliderTrack');
+  const prevBtn = document.getElementById('sliderPrevBtn');
+  const nextBtn = document.getElementById('sliderNextBtn');
+  const dotsContainer = document.getElementById('sliderDots');
+  const counterBadge = document.getElementById('sliderCounterBadge');
+
+  if (sliderViewport && sliderTrack) {
+    const slides = Array.from(sliderTrack.querySelectorAll('.screenshot-slide'));
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    // Create dot indicators
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    const updateSliderUI = (index) => {
+      currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+      
+      // Update active slide class
+      slides.forEach((slide, idx) => {
+        if (idx === currentIndex) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      // Update dots
+      if (dotsContainer) {
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+        dots.forEach((dot, idx) => {
+          if (idx === currentIndex) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      // Update counter badge
+      if (counterBadge) {
+        counterBadge.textContent = `${currentIndex + 1} / ${totalSlides}`;
+      }
+    };
+
+    const goToSlide = (index) => {
+      if (index < 0 || index >= totalSlides) return;
+      const targetSlide = slides[index];
+      if (targetSlide) {
+        const scrollLeft = targetSlide.offsetLeft - (sliderViewport.clientWidth - targetSlide.clientWidth) / 2;
+        sliderViewport.scrollTo({
+          left: Math.max(0, scrollLeft),
+          behavior: 'smooth'
+        });
+        updateSliderUI(index);
+      }
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        const nextIdx = (currentIndex - 1 + totalSlides) % totalSlides;
+        goToSlide(nextIdx);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const nextIdx = (currentIndex + 1) % totalSlides;
+        goToSlide(nextIdx);
+      });
+    }
+
+    // Update active index on scroll / swipe
+    let scrollTimeout;
+    sliderViewport.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const viewportCenter = sliderViewport.scrollLeft + sliderViewport.clientWidth / 2;
+        let closestIndex = 0;
+        let minDistance = Infinity;
+
+        slides.forEach((slide, idx) => {
+          const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+          const distance = Math.abs(viewportCenter - slideCenter);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestIndex = idx;
+          }
+        });
+
+        updateSliderUI(closestIndex);
+      }, 60);
+    }, { passive: true });
+
+    updateSliderUI(0);
   }
 });
