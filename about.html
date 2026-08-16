@@ -328,47 +328,129 @@
       </div>
     </section>
 
-    <!-- Visual Craftsmanship Showcase (Gallery) -->
+    <!-- Visual Craftsmanship Showcase (Sliding Gallery Carousel) -->
     <section class="about-section-block" id="craftsmanship">
       <div class="section-header">
         <div class="section-tag">Visual Showcase</div>
         <h2>Crafted With <span class="text-gradient">Attention to Detail</span></h2>
-        <p>Take a look at the polished in-game interface, level maps, and reward systems.</p>
+        <p>Explore actual in-game screenshots highlighting our intuitive pathfinding interface, handcrafted levels, daily challenges, and achievement systems.</p>
       </div>
 
-      <div class="craft-gallery-grid">
-        <!-- Gallery Card 1 -->
-        <div class="craft-card">
-          <div class="craft-img-wrap">
-            <img src="./assets/images/screenshot-game-screen.jpeg" alt="Arrow Brain Puzzle Strategic Gameplay Board" loading="lazy">
-          </div>
-          <div class="craft-info">
-            <h4>Strategic Pathfinding Board</h4>
-            <p>Clean high-contrast grid where neon directional arrows illuminate as your continuous path flows across the board.</p>
+      <div class="screenshots-slider-wrapper">
+        <!-- Navigation Arrow Left -->
+        <button class="slider-nav-btn slider-prev-btn" aria-label="Previous Screenshot" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <!-- Slider Viewport & Track -->
+        <div class="screenshots-viewport">
+          <div class="screenshots-slider-track">
+            <!-- Slide 1: Gameplay Screen -->
+            <div class="screenshot-slide active" data-index="0">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-game-screen.jpeg" alt="Arrow Brain Puzzle - Active Logic Board Gameplay" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <div class="slide-caption-box">
+                <h3 class="screenshot-caption">Strategic Puzzle Board</h3>
+                <p class="screenshot-subtext">Clear arrows with hints &amp; undos</p>
+              </div>
+            </div>
+
+            <!-- Slide 2: Home Screen & Daily Streak -->
+            <div class="screenshot-slide" data-index="1">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-home.jpeg" alt="Arrow Brain Puzzle - Home Screen and Daily Streak" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <div class="slide-caption-box">
+                <h3 class="screenshot-caption">Main Menu &amp; Daily Streak</h3>
+                <p class="screenshot-subtext">Clean home UI with streak tracker</p>
+              </div>
+            </div>
+
+            <!-- Slide 3: Level Map Progression -->
+            <div class="screenshot-slide" data-index="2">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-levels.jpeg" alt="Arrow Brain Puzzle - Progressive Level Map" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <div class="slide-caption-box">
+                <h3 class="screenshot-caption">Progressive Level Map</h3>
+                <p class="screenshot-subtext">Hundreds of handcrafted stages</p>
+              </div>
+            </div>
+
+            <!-- Slide 4: Daily Challenge System -->
+            <div class="screenshot-slide" data-index="3">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-daily-challenge.jpeg" alt="Arrow Brain Puzzle - Daily Brain Workout Challenge" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <div class="slide-caption-box">
+                <h3 class="screenshot-caption">Daily Brain Workout</h3>
+                <p class="screenshot-subtext">Earn daily stars &amp; bonus coins</p>
+              </div>
+            </div>
+
+            <!-- Slide 5: Achievements & Trophies -->
+            <div class="screenshot-slide" data-index="4">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-trophies.jpeg" alt="Arrow Brain Puzzle - Achievements and Trophies" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <div class="slide-caption-box">
+                <h3 class="screenshot-caption">Achievements &amp; Trophies</h3>
+                <p class="screenshot-subtext">Unlock rewards for master solutions</p>
+              </div>
+            </div>
+
+            <!-- Slide 6: Competitive Leagues -->
+            <div class="screenshot-slide" data-index="5">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-leagues.jpeg" alt="Arrow Brain Puzzle - Competitive Leagues & Rankings" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <div class="slide-caption-box">
+                <h3 class="screenshot-caption">Competitive Leagues</h3>
+                <p class="screenshot-subtext">Climb divisions and rank up</p>
+              </div>
+            </div>
+
+            <!-- Slide 7: Coin Shop & Boosters -->
+            <div class="screenshot-slide" data-index="6">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-coin-shop.jpeg" alt="Arrow Brain Puzzle - Coin Shop & Boosters" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <div class="slide-caption-box">
+                <h3 class="screenshot-caption">Coin Shop &amp; Boosters</h3>
+                <p class="screenshot-subtext">Get hints, undos &amp; coin packages</p>
+              </div>
+            </div>
+
+            <!-- Slide 8: Game Settings & Privacy -->
+            <div class="screenshot-slide" data-index="7">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-settings.jpeg" alt="Arrow Brain Puzzle - Game Settings & Privacy Controls" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <div class="slide-caption-box">
+                <h3 class="screenshot-caption">Game Settings &amp; Privacy</h3>
+                <p class="screenshot-subtext">Audio controls &amp; consent settings</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Gallery Card 2 -->
-        <div class="craft-card">
-          <div class="craft-img-wrap">
-            <img src="./assets/images/screenshot-daily-challenge.jpeg" alt="Daily Puzzle Streak Challenge" loading="lazy">
-          </div>
-          <div class="craft-info">
-            <h4>Daily Brain Workout</h4>
-            <p>Every single day brings a fresh puzzle challenge to test your deduction skills and keep your mental streak alive.</p>
-          </div>
-        </div>
+        <!-- Navigation Arrow Right -->
+        <button class="slider-nav-btn slider-next-btn" aria-label="Next Screenshot" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
 
-        <!-- Gallery Card 3 -->
-        <div class="craft-card">
-          <div class="craft-img-wrap">
-            <img src="./assets/images/screenshot-trophies.jpeg" alt="Achievements and Trophies Screen" loading="lazy">
-          </div>
-          <div class="craft-info">
-            <h4>Trophies &amp; Milestones</h4>
-            <p>Earn distinctive trophies as you conquer difficult chapters, achieve perfect stars, and climb the competitive ladder.</p>
-          </div>
+      <!-- Slider Pagination Indicator Dots & Live Counter -->
+      <div class="slider-footer-controls">
+        <div class="slider-dots">
+          <!-- Rendered via script.js -->
         </div>
+        <div class="slider-counter-badge">1 / 8</div>
       </div>
     </section>
 

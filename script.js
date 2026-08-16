@@ -485,115 +485,124 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(sec => sectionObserver.observe(sec));
   }
 
-  // 9. Screenshots Interactive Slide Carousel
-  const sliderViewport = document.getElementById('screenshotsViewport');
-  const sliderTrack = document.getElementById('screenshotsSliderTrack');
-  const prevBtn = document.getElementById('sliderPrevBtn');
-  const nextBtn = document.getElementById('sliderNextBtn');
-  const dotsContainer = document.getElementById('sliderDots');
-  const counterBadge = document.getElementById('sliderCounterBadge');
+  // 9. Reusable Screenshots & Gallery Interactive Slide Carousel
+  const initSliders = () => {
+    const sliderWrappers = document.querySelectorAll('.screenshots-slider-wrapper');
+    sliderWrappers.forEach((wrapper) => {
+      const sliderViewport = wrapper.querySelector('.screenshots-viewport');
+      const sliderTrack = wrapper.querySelector('.screenshots-slider-track');
+      const prevBtn = wrapper.querySelector('.slider-prev-btn') || wrapper.parentElement.querySelector('.slider-prev-btn');
+      const nextBtn = wrapper.querySelector('.slider-next-btn') || wrapper.parentElement.querySelector('.slider-next-btn');
+      const parentSection = wrapper.closest('section') || wrapper.parentElement;
+      const dotsContainer = parentSection ? parentSection.querySelector('.slider-dots') : null;
+      const counterBadge = parentSection ? parentSection.querySelector('.slider-counter-badge') : null;
 
-  if (sliderViewport && sliderTrack) {
-    const slides = Array.from(sliderTrack.querySelectorAll('.screenshot-slide'));
-    const totalSlides = slides.length;
-    let currentIndex = 0;
+      if (!sliderViewport || !sliderTrack) return;
 
-    // Create dot indicators
-    if (dotsContainer) {
-      dotsContainer.innerHTML = '';
-      slides.forEach((_, idx) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
-        dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
-        dot.addEventListener('click', () => {
-          goToSlide(idx);
-        });
-        dotsContainer.appendChild(dot);
-      });
-    }
+      const slides = Array.from(sliderTrack.querySelectorAll('.screenshot-slide'));
+      const totalSlides = slides.length;
+      if (totalSlides === 0) return;
+      let currentIndex = 0;
 
-    const updateSliderUI = (index) => {
-      currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
-      
-      // Update active slide class
-      slides.forEach((slide, idx) => {
-        if (idx === currentIndex) {
-          slide.classList.add('active');
-        } else {
-          slide.classList.remove('active');
-        }
-      });
-
-      // Update dots
+      // Create dot indicators
       if (dotsContainer) {
-        const dots = dotsContainer.querySelectorAll('.slider-dot');
-        dots.forEach((dot, idx) => {
-          if (idx === currentIndex) {
-            dot.classList.add('active');
-          } else {
-            dot.classList.remove('active');
-          }
+        dotsContainer.innerHTML = '';
+        slides.forEach((_, idx) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
+          dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+          dot.addEventListener('click', () => {
+            goToSlide(idx);
+          });
+          dotsContainer.appendChild(dot);
         });
       }
 
-      // Update counter badge
-      if (counterBadge) {
-        counterBadge.textContent = `${currentIndex + 1} / ${totalSlides}`;
-      }
-    };
-
-    const goToSlide = (index) => {
-      if (index < 0 || index >= totalSlides) return;
-      const targetSlide = slides[index];
-      if (targetSlide) {
-        const scrollLeft = targetSlide.offsetLeft - (sliderViewport.clientWidth - targetSlide.clientWidth) / 2;
-        sliderViewport.scrollTo({
-          left: Math.max(0, scrollLeft),
-          behavior: 'smooth'
-        });
-        updateSliderUI(index);
-      }
-    };
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        const nextIdx = (currentIndex - 1 + totalSlides) % totalSlides;
-        goToSlide(nextIdx);
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        const nextIdx = (currentIndex + 1) % totalSlides;
-        goToSlide(nextIdx);
-      });
-    }
-
-    // Update active index on scroll / swipe
-    let scrollTimeout;
-    sliderViewport.addEventListener('scroll', () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        const viewportCenter = sliderViewport.scrollLeft + sliderViewport.clientWidth / 2;
-        let closestIndex = 0;
-        let minDistance = Infinity;
-
+      const updateSliderUI = (index) => {
+        currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+        
+        // Update active slide class
         slides.forEach((slide, idx) => {
-          const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
-          const distance = Math.abs(viewportCenter - slideCenter);
-          if (distance < minDistance) {
-            minDistance = distance;
-            closestIndex = idx;
+          if (idx === currentIndex) {
+            slide.classList.add('active');
+          } else {
+            slide.classList.remove('active');
           }
         });
 
-        updateSliderUI(closestIndex);
-      }, 60);
-    }, { passive: true });
+        // Update dots
+        if (dotsContainer) {
+          const dots = dotsContainer.querySelectorAll('.slider-dot');
+          dots.forEach((dot, idx) => {
+            if (idx === currentIndex) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        }
 
-    updateSliderUI(0);
-  }
+        // Update counter badge
+        if (counterBadge) {
+          counterBadge.textContent = `${currentIndex + 1} / ${totalSlides}`;
+        }
+      };
+
+      const goToSlide = (index) => {
+        if (index < 0 || index >= totalSlides) return;
+        const targetSlide = slides[index];
+        if (targetSlide) {
+          const scrollLeft = targetSlide.offsetLeft - (sliderViewport.clientWidth - targetSlide.clientWidth) / 2;
+          sliderViewport.scrollTo({
+            left: Math.max(0, scrollLeft),
+            behavior: 'smooth'
+          });
+          updateSliderUI(index);
+        }
+      };
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          const nextIdx = (currentIndex - 1 + totalSlides) % totalSlides;
+          goToSlide(nextIdx);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          const nextIdx = (currentIndex + 1) % totalSlides;
+          goToSlide(nextIdx);
+        });
+      }
+
+      // Update active index on scroll / swipe
+      let scrollTimeout;
+      sliderViewport.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          const viewportCenter = sliderViewport.scrollLeft + sliderViewport.clientWidth / 2;
+          let closestIndex = 0;
+          let minDistance = Infinity;
+
+          slides.forEach((slide, idx) => {
+            const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+            const distance = Math.abs(viewportCenter - slideCenter);
+            if (distance < minDistance) {
+              minDistance = distance;
+              closestIndex = idx;
+            }
+          });
+
+          updateSliderUI(closestIndex);
+        }, 60);
+      }, { passive: true });
+
+      updateSliderUI(0);
+    });
+  };
+
+  initSliders();
 
   // 10. About Us Page: Interactive Subnav ScrollSpy & Smooth Jump
   const aboutSubnavLinks = document.querySelectorAll('.about-subnav-link');
