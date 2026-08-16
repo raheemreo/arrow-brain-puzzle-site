@@ -69,72 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleScroll();
   }
 
-  // 4. Interactive Hero Mini Arrow Puzzle
-  const miniGrid = document.getElementById('miniArrowGrid');
-  const resetBtn = document.getElementById('resetMiniGame');
-  const statusText = document.getElementById('puzzleStatus');
-
-  if (miniGrid) {
-    const initialBoard = [
-      { dir: 'up', icon: 'M12 19V5M5 12l7-7 7 7' },
-      { dir: 'right', icon: 'M5 12h14M12 5l7 7-7 7' },
-      { dir: 'up', icon: 'M12 19V5M5 12l7-7 7 7' },
-      { dir: 'left', icon: 'M19 12H5M12 19l-7-7 7-7' },
-      { dir: 'right', icon: 'M5 12h14M12 5l7 7-7 7' },
-      { dir: 'down', icon: 'M12 5v14M19 12l-7 7-7-7' },
-      { dir: 'left', icon: 'M19 12H5M12 19l-7-7 7-7' },
-      { dir: 'down', icon: 'M12 5v14M19 12l-7 7-7-7' },
-      { dir: 'right', icon: 'M5 12h14M12 5l7 7-7 7' }
-    ];
-
-    let clearedCount = 0;
-
-    const renderBoard = () => {
-      clearedCount = 0;
-      miniGrid.innerHTML = '';
-      if (statusText) statusText.textContent = 'Tap any arrow to launch it!';
-
-      initialBoard.forEach((item, index) => {
-        const btn = document.createElement('button');
-        btn.className = 'mini-arrow-btn';
-        btn.setAttribute('data-dir', item.dir);
-        btn.setAttribute('aria-label', `Clear arrow pointing ${item.dir}`);
-        btn.innerHTML = `
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="${item.icon}" />
-          </svg>
-        `;
-
-        btn.addEventListener('click', () => {
-          if (!btn.classList.contains('cleared')) {
-            btn.classList.add('cleared');
-            clearedCount++;
-            if (statusText) {
-              if (clearedCount === initialBoard.length) {
-                statusText.textContent = '🎉 Board cleared! Sharp strategic logic!';
-                statusText.style.color = 'var(--color-cyan)';
-              } else {
-                statusText.textContent = `${clearedCount} of ${initialBoard.length} arrows cleared`;
-                statusText.style.color = 'var(--text-secondary)';
-              }
-            }
-          }
-        });
-
-        miniGrid.appendChild(btn);
-      });
-    };
-
-    renderBoard();
-
-    if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
-        renderBoard();
-      });
-    }
-  }
-
-  // 5. Interactive How to Play Tabs
+  // 4. Interactive How to Play Tabs
   const tabBtns = document.querySelectorAll('.htp-tab-btn');
   const tabPanes = document.querySelectorAll('.htp-tab-content');
 
@@ -396,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 8. Smooth Scroll with Sticky Header Offset for Anchor Links
+  // 7. Smooth Scroll with Sticky Header Offset for Anchor Links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
@@ -416,4 +351,33 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 8. ScrollSpy for Active Navigation Link Highlighting on Homepage
+  const sections = document.querySelectorAll('section[id]');
+  const navLinkItems = document.querySelectorAll('.nav-menu a.nav-link');
+
+  if (sections.length > 0 && navLinkItems.length > 0 && window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/')) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.getAttribute('id');
+          navLinkItems.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${currentId}` || href === `./index.html#${currentId}`) {
+              navLinkItems.forEach(l => l.classList.remove('active'));
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(sec => sectionObserver.observe(sec));
+  }
 });

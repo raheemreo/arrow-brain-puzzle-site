@@ -112,22 +112,39 @@
           </div>
         </div>
 
-        <!-- Interactive Mini-Puzzle Demo -->
+        <!-- Interactive Hero Continuous Path Preview -->
         <div class="hero-visual">
           <div class="puzzle-interactive-card">
             <div class="puzzle-card-header">
-              <span class="puzzle-badge">🎮 Interactive Teaser</span>
-              <span class="puzzle-status-text" id="puzzleStatus">Tap any arrow to launch it!</span>
+              <span class="puzzle-badge">🎮 Level 18 &bull; 4×4 Grid</span>
+              <span class="puzzle-status-text" style="color: var(--color-cyan);">⭐⭐⭐ 3-Star Path</span>
             </div>
-            <p class="puzzle-instructions">Experience the core mechanics directly in your browser:</p>
+            <p class="puzzle-instructions">Fill 100% of the board from 🟢 Start to 🏁 Exit:</p>
             
-            <div class="arrow-mini-grid" id="miniArrowGrid" aria-label="Interactive mini puzzle board">
-              <!-- Rendered via script.js with accessible fallback -->
+            <div class="hero-demo-path-board" aria-label="Arrow Brain Puzzle live preview">
+              <div class="hero-board-tile start-tile pulse-glow"><span>🟢</span><small>Start</small></div>
+              <div class="hero-board-tile path-active"><span>➡️</span></div>
+              <div class="hero-board-tile path-active"><span>➡️</span></div>
+              <div class="hero-board-tile path-active"><span>⬇️</span></div>
+              <div class="hero-board-tile path-active"><span>⬇️</span></div>
+              <div class="hero-board-tile path-active"><span>⬅️</span></div>
+              <div class="hero-board-tile path-active"><span>⬅️</span></div>
+              <div class="hero-board-tile path-active"><span>⬇️</span></div>
+              <div class="hero-board-tile path-active"><span>➡️</span></div>
+              <div class="hero-board-tile path-active"><span>➡️</span></div>
+              <div class="hero-board-tile path-active"><span>⬇️</span></div>
+              <div class="hero-board-tile path-active"><span>⬅️</span></div>
+              <div class="hero-board-tile path-active"><span>⬅️</span></div>
+              <div class="hero-board-tile path-active"><span>⬅️</span></div>
+              <div class="hero-board-tile path-active"><span>⬆️</span></div>
+              <div class="hero-board-tile exit-tile pulse-glow"><span>🏁</span><small>Exit</small></div>
             </div>
 
-            <div class="puzzle-footer-actions">
-              <button class="btn-reset-demo" id="resetMiniGame" type="button">↺ Reset Board</button>
-              <span class="puzzle-status-text">Arrows clear outward</span>
+            <div class="puzzle-footer-actions" style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.85rem; color: var(--color-cyan); font-weight: 700;">100% Filled &bull; 16/16 Tiles</span>
+              <a href="#how-to-play" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.82rem;">
+                <span>Try Playable Simulator ↘</span>
+              </a>
             </div>
           </div>
         </div>
@@ -149,8 +166,8 @@
             <div class="feature-icon-wrapper">
               <span>🎯</span>
             </div>
-            <h3>Strategic Arrow Puzzles</h3>
-            <p>Plan each move carefully and clear arrows in the correct order without blocking pathways.</p>
+            <h3>Strategic Pathfinding Puzzles</h3>
+            <p>Connect every arrow tile with a single continuous line from Start to Exit without overlapping.</p>
           </div>
 
           <!-- Feature 2 -->
