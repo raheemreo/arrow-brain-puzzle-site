@@ -82,9 +82,9 @@
         <div class="hero-content">
           <div class="section-tag">🧩 Logic &amp; Strategy Game</div>
           <h1 class="hero-title">Arrow <span class="text-gradient">Brain Puzzle</span></h1>
-          <p class="hero-subtitle">Think ahead. Clear every arrow. Train your brain.</p>
+          <p class="hero-subtitle">Think ahead. Connect every arrow. Train your brain.</p>
           <p class="hero-description">
-            Arrow Brain Puzzle is a strategic logic puzzle game where every arrow moves in its own direction. Plan your moves carefully, clear the board, beat challenging levels, and sharpen your problem-solving skills.
+            Arrow Brain Puzzle is a relaxing and mentally stimulating pathfinding logic game. Fill the entire board with a single continuous line from the Start cell to the Exit cell, visiting every valid arrow tile exactly once.
           </p>
 
           <div class="hero-buttons">
@@ -215,75 +215,139 @@
     <section class="section" id="how-to-play" style="background: rgba(14, 21, 46, 0.4);">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag">Game Rules</div>
-          <h2>How to Play in 5 Simple Steps</h2>
-          <p>Simple to learn in seconds, endlessly deep to master over hundreds of stages.</p>
+          <div class="section-tag">Game Rules &amp; Strategy</div>
+          <h2>How to Play Arrow Brain Puzzle</h2>
+          <p>Simple to learn, deeply engaging to master. Spatial logic, pathfinding, and foresight come together.</p>
         </div>
 
+        <!-- Core Objective Callout -->
+        <div class="how-to-play-objective">
+          <span class="objective-badge">🎯 Core Objective</span>
+          <p class="objective-text">
+            Fill the entire board with a single continuous line, moving from the <strong>Start cell (🟢)</strong> to the <strong>Exit cell (🏁)</strong>, visiting every valid arrow cell exactly once.
+          </p>
+        </div>
+
+        <!-- 5 Core Rules Grid -->
         <div class="how-to-play-grid">
-          <!-- Step 1 -->
+          <!-- Rule 1 -->
           <div class="glass-card step-card">
             <div class="step-badge">1</div>
             <div class="step-arrow-visual">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-dasharray="3 3"/>
-                <line x1="12" y1="16" x2="12" y2="8"></line>
-                <polyline points="8 12 12 8 16 12"></polyline>
-              </svg>
+              <span>🟢</span>
             </div>
-            <h3>Tap an Arrow</h3>
-            <p>Select any arrow on the board that you want to move.</p>
+            <h3>Start at Green Cell</h3>
+            <p>Your continuous path always begins at the designated emerald Start tile.</p>
           </div>
 
-          <!-- Step 2 -->
+          <!-- Rule 2 -->
           <div class="glass-card step-card">
             <div class="step-badge">2</div>
             <div class="step-arrow-visual">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
+              <span>🗺️</span>
             </div>
-            <h3>Follow the Direction</h3>
-            <p>The arrow will attempt to move forward in its designated pointing direction.</p>
+            <h3>100% Grid Coverage</h3>
+            <p>Visit every single valid arrow cell on the grid. No tiles can be skipped.</p>
           </div>
 
-          <!-- Step 3 -->
+          <!-- Rule 3 -->
           <div class="glass-card step-card">
             <div class="step-badge">3</div>
             <div class="step-arrow-visual">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <polyline points="9 12 11 14 15 10"/>
-              </svg>
+              <span>🚫</span>
             </div>
-            <h3>Ensure Clear Path</h3>
-            <p>Make sure no other arrows or obstacles block its exit route from the grid.</p>
+            <h3>No Retracing / Cross</h3>
+            <p>Visit each tile only once. Moving over an already visited cell is forbidden.</p>
           </div>
 
-          <!-- Step 4 -->
+          <!-- Rule 4 -->
           <div class="glass-card step-card">
             <div class="step-badge">4</div>
             <div class="step-arrow-visual">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="4"/>
-                <polyline points="8 12 11 15 16 9"/>
-              </svg>
+              <span>🏁</span>
             </div>
-            <h3>Clear the Board</h3>
-            <p>Remove all arrows sequentially to beat the level and unlock the next challenge.</p>
+            <h3>Finish at Exit Cell</h3>
+            <p>The very last cell of your unbroken flow line must be the target Exit tile.</p>
           </div>
 
-          <!-- Step 5 -->
+          <!-- Rule 5 -->
           <div class="glass-card step-card">
             <div class="step-badge">5</div>
             <div class="step-arrow-visual">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+                <polyline points="5 12 12 5 19 12"></polyline>
+                <line x1="12" y1="5" x2="12" y2="19"></line>
               </svg>
             </div>
-            <h3>Use Hints When Stuck</h3>
-            <p>Activate hints to reveal the next optimal move whenever you face a tricky grid.</p>
+            <h3>Orthogonal Moves</h3>
+            <p>Move only horizontally or vertically (Up, Down, Left, Right). No diagonals.</p>
+          </div>
+        </div>
+
+        <!-- Board Elements & Pro Strategy Tips -->
+        <div class="guide-subsections-grid">
+          <!-- Board Elements Legend -->
+          <div class="glass-card guide-block">
+            <h3>🧩 Board Elements &amp; Legend</h3>
+            <div class="legend-list">
+              <div class="legend-item">
+                <div class="legend-icon" style="color: #10b981; border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.1);">🟢</div>
+                <div>
+                  <div class="legend-title">Start Cell (Origin)</div>
+                  <div class="legend-desc">The initial starting cell marked with an emerald marker where your path begins.</div>
+                </div>
+              </div>
+
+              <div class="legend-item">
+                <div class="legend-icon" style="color: var(--color-cyan);">➡️</div>
+                <div>
+                  <div class="legend-title">Arrow Indicators</div>
+                  <div class="legend-desc">Tiles providing directional flow cues to help guide your spatial trajectory.</div>
+                </div>
+              </div>
+
+              <div class="legend-item">
+                <div class="legend-icon" style="color: var(--text-muted); border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);">⬛</div>
+                <div>
+                  <div class="legend-title">Grid Obstacles &amp; Voids</div>
+                  <div class="legend-desc">Inactive or blocked tiles that create intricate mazes and cannot be entered.</div>
+                </div>
+              </div>
+
+              <div class="legend-item">
+                <div class="legend-icon" style="color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.1);">🏁</div>
+                <div>
+                  <div class="legend-title">Exit Cell (Finish Target)</div>
+                  <div class="legend-desc">The designated goal tile where your 100% path must conclude to complete the stage.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Master Strategies & Pro Tips -->
+          <div class="glass-card guide-block">
+            <h3>🧠 Master Strategies &amp; Pro Tips</h3>
+            <div class="strategy-tips-list">
+              <div class="strategy-card">
+                <div class="strategy-title">🎯 1. Identify Forced Corner Moves First</div>
+                <div class="strategy-desc">Corner tiles with only one entrance and exit must follow those exact neighbors. Route these early!</div>
+              </div>
+
+              <div class="strategy-card purple-border">
+                <div class="strategy-title">🏁 2. Work Backwards from Exit</div>
+                <div class="strategy-desc">Identify which tile must precede the Exit so you don't accidentally step on it too early.</div>
+              </div>
+
+              <div class="strategy-card amber-border">
+                <div class="strategy-title">🏝️ 3. Avoid Isolated "Islands"</div>
+                <div class="strategy-desc">Never cut off groups of unvisited cells without remaining entry and exit routes. Keep open tiles connected.</div>
+              </div>
+
+              <div class="strategy-card emerald-border">
+                <div class="strategy-title">↶ 4. Use Undo (↶) Over Full Restarts</div>
+                <div class="strategy-desc">Retract 2–3 moves instead of restarting the entire board to stay on track for a 3-star rating.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
