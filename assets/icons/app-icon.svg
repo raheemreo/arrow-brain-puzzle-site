@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e152e" />
+      <stop offset="50%" stop-color="#080c1a" />
+      <stop offset="100%" stop-color="#152042" />
+    </linearGradient>
+
+    <!-- Cyan Glow Gradient -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#00f0ff" />
+    </linearGradient>
+
+    <!-- Purple Glow Gradient -->
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+
+    <!-- Amber Glow Gradient -->
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+
+    <!-- Emerald Glow Gradient -->
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <!-- Drop Shadows / Glows -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glowPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- App Icon Base Squircle -->
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bgGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="6" />
+
+  <!-- Subtle Inner Grid -->
+  <path d="M96 96h320M96 256h320M96 416h320 M96 96v320M256 96v320M416 96v320" stroke="rgba(255,255,255,0.04)" stroke-width="2" stroke-dasharray="6 6" />
+
+  <!-- Central Dynamic Arrow Compass / Node Structure -->
+  <!-- Top Arrow (Cyan) -->
+  <g filter="url(#glowCyan)">
+    <path d="M256 70 L300 130 H272 V200 H240 V130 H212 Z" fill="url(#cyanGrad)" />
+  </g>
+
+  <!-- Right Arrow (Purple) -->
+  <g filter="url(#glowPurple)">
+    <path d="M442 256 L382 300 V272 H312 V240 H382 V212 Z" fill="url(#purpleGrad)" />
+  </g>
+
+  <!-- Bottom Arrow (Emerald) -->
+  <path d="M256 442 L212 382 H240 V312 H272 V382 H300 Z" fill="url(#emeraldGrad)" />
+
+  <!-- Left Arrow (Amber) -->
+  <path d="M70 256 L130 212 V240 H200 V272 H130 V300 Z" fill="url(#amberGrad)" />
+
+  <!-- Central Core Orb -->
+  <circle cx="256" cy="256" r="42" fill="#0f172a" stroke="url(#cyanGrad)" stroke-width="6" />
+  <circle cx="256" cy="256" r="20" fill="url(#purpleGrad)" />
+</svg>

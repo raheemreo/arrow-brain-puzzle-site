@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Arrow Went The Wrong Way | Arrow Brain Puzzle</title>
+  
+  <meta name="description" content="Page not found - Arrow Brain Puzzle website.">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Mobile & Theme -->
+  <meta name="theme-color" content="#070b19">
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/app-icon.svg">
+
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="./index.html" class="logo-link" aria-label="Arrow Brain Puzzle Home">
+        <img src="./assets/icons/app-icon.svg" alt="Arrow Brain Puzzle Logo" class="logo-icon" width="38" height="38">
+        <span class="logo-text">Arrow <span>Brain</span></span>
+      </a>
+
+      <nav class="nav-menu" id="primary-nav" aria-label="Primary Navigation">
+        <a href="./index.html" class="nav-link">Home</a>
+        <a href="./index.html#features" class="nav-link">Features</a>
+        <a href="./index.html#how-to-play" class="nav-link">How to Play</a>
+        <a href="./index.html#screenshots" class="nav-link">Screenshots</a>
+        <a href="./privacy.html" class="nav-link">Privacy</a>
+        <a href="./terms.html" class="nav-link">Terms</a>
+        <a href="./contact.html" class="nav-link">Support</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.reotech.arrow_brain_puzzle" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <img src="./assets/icons/google-play.svg" alt="" class="btn-icon" width="20" height="20">
+          <span>Play Store</span>
+        </a>
+
+        <button class="mobile-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 404 Main Content -->
+  <main id="main-content" class="error-page-wrapper">
+    <div class="container">
+      <div class="glass-card error-card">
+        <div class="error-arrow-icon">
+          <svg viewBox="0 0 100 100" width="100%" height="100%">
+            <defs>
+              <linearGradient id="errGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f0ff" />
+                <stop offset="100%" stop-color="#a855f7" />
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4" stroke-dasharray="6 6" />
+            <path d="M50 18 L72 45 H58 V78 H42 V45 H28 Z" fill="url(#errGrad)" transform="rotate(135 50 50)" />
+          </svg>
+        </div>
+
+        <div class="error-code">404</div>
+        <h1>Oops! This arrow went the wrong way.</h1>
+        <p>The page or board you are looking for does not exist, was moved, or pointed off the grid.</p>
+
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+          <a href="./index.html" class="btn btn-primary btn-lg">
+            <span>↺ Return to Home</span>
+          </a>
+          <a href="./contact.html" class="btn btn-secondary btn-lg">
+            <span>Get Support</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./index.html" class="logo-link">
+            <img src="./assets/icons/app-icon.svg" alt="Arrow Brain Puzzle" class="logo-icon" width="32" height="32">
+            <span>Arrow <span>Brain</span></span>
+          </a>
+          <p>Strategic logic puzzle game by REO Technologies.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="./index.html" class="footer-link">Home</a>
+          <a href="./privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="./terms.html" class="footer-link">Terms of Service</a>
+          <a href="./contact.html" class="footer-link">Contact Support</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; <span class="current-year">2026</span> REO Technologies. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrow Brain Puzzle - Strategic Arrow Logic Puzzle Game</title>
+  
+  <!-- SEO & Discovery Metadata -->
+  <meta name="description" content="Arrow Brain Puzzle is a strategic logic puzzle game where you clear directional arrows, solve challenging levels, use hints, and train your brain.">
+  <meta name="keywords" content="arrow puzzle, brain puzzle, logic game, arrow brain puzzle, strategic puzzle, android puzzle game, mind training, brain teasers">
+  <meta name="author" content="REO Technologies">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://raheemreo.github.io/arrow-brain-puzzle-site/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://raheemreo.github.io/arrow-brain-puzzle-site/">
+  <meta property="og:title" content="Arrow Brain Puzzle - Strategic Arrow Logic Puzzle Game">
+  <meta property="og:description" content="Think ahead. Clear every arrow. Train your brain in this addictive strategic logic puzzle game.">
+  <meta property="og:image" content="./assets/icons/app-icon.svg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arrow Brain Puzzle - Strategic Arrow Logic Puzzle Game">
+  <meta name="twitter:description" content="Think ahead. Clear every arrow. Train your brain in this addictive strategic logic puzzle game.">
+  <meta name="twitter:image" content="./assets/icons/app-icon.svg">
+
+  <!-- Mobile & Browser UI -->
+  <meta name="theme-color" content="#070b19">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/app-icon.svg">
+
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Keyboard Navigation Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="./index.html" class="logo-link" aria-label="Arrow Brain Puzzle Home">
+        <img src="./assets/icons/app-icon.svg" alt="Arrow Brain Puzzle Logo" class="logo-icon" width="38" height="38">
+        <span class="logo-text">Arrow <span>Brain</span></span>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav class="nav-menu" id="primary-nav" aria-label="Primary Navigation">
+        <a href="./index.html" class="nav-link active">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-to-play" class="nav-link">How to Play</a>
+        <a href="#screenshots" class="nav-link">Screenshots</a>
+        <a href="./privacy.html" class="nav-link">Privacy</a>
+        <a href="./terms.html" class="nav-link">Terms</a>
+        <a href="./contact.html" class="nav-link">Support</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.reotech.arrow_brain_puzzle" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Get it on Google Play">
+          <img src="./assets/icons/google-play.svg" alt="" class="btn-icon" width="20" height="20">
+          <span>Get on Play Store</span>
+        </a>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="section-tag">🧩 Logic &amp; Strategy Game</div>
+          <h1 class="hero-title">Arrow <span class="text-gradient">Brain Puzzle</span></h1>
+          <p class="hero-subtitle">Think ahead. Clear every arrow. Train your brain.</p>
+          <p class="hero-description">
+            Arrow Brain Puzzle is a strategic logic puzzle game where every arrow moves in its own direction. Plan your moves carefully, clear the board, beat challenging levels, and sharpen your problem-solving skills.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.reotech.arrow_brain_puzzle" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" id="heroDownloadBtn">
+              <img src="./assets/icons/google-play.svg" alt="" class="btn-icon" width="24" height="24">
+              <span>Download on Google Play</span>
+            </a>
+            <a href="./privacy.html" class="btn btn-secondary btn-lg">
+              <span>Privacy Policy</span>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-value">100<span>+</span></div>
+              <div class="stat-label">Challenging Levels</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">100<span>%</span></div>
+              <div class="stat-label">Logic-Based Puzzles</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">Daily<span>★</span></div>
+              <div class="stat-label">Fresh Challenges</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Mini-Puzzle Demo -->
+        <div class="hero-visual">
+          <div class="puzzle-interactive-card">
+            <div class="puzzle-card-header">
+              <span class="puzzle-badge">🎮 Interactive Teaser</span>
+              <span class="puzzle-status-text" id="puzzleStatus">Tap any arrow to launch it!</span>
+            </div>
+            <p class="puzzle-instructions">Experience the core mechanics directly in your browser:</p>
+            
+            <div class="arrow-mini-grid" id="miniArrowGrid" aria-label="Interactive mini puzzle board">
+              <!-- Rendered via script.js with accessible fallback -->
+            </div>
+
+            <div class="puzzle-footer-actions">
+              <button class="btn-reset-demo" id="resetMiniGame" type="button">↺ Reset Board</button>
+              <span class="puzzle-status-text">Arrows clear outward</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Key Highlights</div>
+          <h2>Designed to Challenge &amp; Relax</h2>
+          <p>Every feature is crafted to deliver a smooth, intellectually rewarding puzzle experience.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper">
+              <span>🎯</span>
+            </div>
+            <h3>Strategic Arrow Puzzles</h3>
+            <p>Plan each move carefully and clear arrows in the correct order without blocking pathways.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper feature-icon-purple">
+              <span>🧩</span>
+            </div>
+            <h3>Hundreds of Levels</h3>
+            <p>Progress through increasingly challenging logic puzzles designed to test spatial and sequential thinking.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper feature-icon-amber">
+              <span>💡</span>
+            </div>
+            <h3>Hints &amp; Boosts</h3>
+            <p>Use coins or optional rewarded ads when you need a helpful nudge on complex boards.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper feature-icon-emerald">
+              <span>📅</span>
+            </div>
+            <h3>Daily Challenges</h3>
+            <p>Return regularly for fresh, handcrafted puzzle challenges and build your daily winning streak.</p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper">
+              <span>🏆</span>
+            </div>
+            <h3>Achievements &amp; Trophies</h3>
+            <p>Complete in-game milestones, solve master boards with precision, and build your trophy showcase.</p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper feature-icon-purple">
+              <span>⚡</span>
+            </div>
+            <h3>Leagues &amp; Progress</h3>
+            <p>Track your personal puzzle mastery, conquer game tiers, and elevate your strategic rankings.</p>
+          </div>
+
+          <!-- Feature 7 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper feature-icon-emerald">
+              <span>✨</span>
+            </div>
+            <h3>Clean Gameplay</h3>
+            <p>Minimal distractions and smooth neon aesthetics during active puzzle solving sessions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Play Section -->
+    <section class="section" id="how-to-play" style="background: rgba(14, 21, 46, 0.4);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Game Rules</div>
+          <h2>How to Play in 5 Simple Steps</h2>
+          <p>Simple to learn in seconds, endlessly deep to master over hundreds of stages.</p>
+        </div>
+
+        <div class="how-to-play-grid">
+          <!-- Step 1 -->
+          <div class="glass-card step-card">
+            <div class="step-badge">1</div>
+            <div class="step-arrow-visual">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-dasharray="3 3"/>
+                <line x1="12" y1="16" x2="12" y2="8"></line>
+                <polyline points="8 12 12 8 16 12"></polyline>
+              </svg>
+            </div>
+            <h3>Tap an Arrow</h3>
+            <p>Select any arrow on the board that you want to move.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass-card step-card">
+            <div class="step-badge">2</div>
+            <div class="step-arrow-visual">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+            <h3>Follow the Direction</h3>
+            <p>The arrow will attempt to move forward in its designated pointing direction.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass-card step-card">
+            <div class="step-badge">3</div>
+            <div class="step-arrow-visual">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
+              </svg>
+            </div>
+            <h3>Ensure Clear Path</h3>
+            <p>Make sure no other arrows or obstacles block its exit route from the grid.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="glass-card step-card">
+            <div class="step-badge">4</div>
+            <div class="step-arrow-visual">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="4"/>
+                <polyline points="8 12 11 15 16 9"/>
+              </svg>
+            </div>
+            <h3>Clear the Board</h3>
+            <p>Remove all arrows sequentially to beat the level and unlock the next challenge.</p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="glass-card step-card">
+            <div class="step-badge">5</div>
+            <div class="step-arrow-visual">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+              </svg>
+            </div>
+            <h3>Use Hints When Stuck</h3>
+            <p>Activate hints to reveal the next optimal move whenever you face a tricky grid.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="section" id="screenshots">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">In-Game Screenshots</div>
+          <h2>Experience Arrow Brain Puzzle</h2>
+          <p>Explore actual in-game screenshots featuring smooth logic puzzles, daily challenges, trophy milestones, and leagues.</p>
+        </div>
+
+        <div class="screenshots-carousel-wrapper">
+          <div class="screenshots-track">
+            <!-- Screenshot 1: Home Screen -->
+            <div class="screenshot-item">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-home.jpeg" alt="Arrow Brain Puzzle - Home Screen and Daily Rewards" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <h3 class="screenshot-caption">Main Menu &amp; Daily Streak</h3>
+              <p class="screenshot-subtext">Clean home UI with streak tracker</p>
+            </div>
+
+            <!-- Screenshot 2: Gameplay Screen -->
+            <div class="screenshot-item">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-game-screen.jpeg" alt="Arrow Brain Puzzle - Active Logic Board Gameplay" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <h3 class="screenshot-caption">Strategic Puzzle Board</h3>
+              <p class="screenshot-subtext">Clear arrows with hints &amp; undos</p>
+            </div>
+
+            <!-- Screenshot 3: Level Map -->
+            <div class="screenshot-item">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-levels.jpeg" alt="Arrow Brain Puzzle - Level Map and Progression" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <h3 class="screenshot-caption">Progressive Level Map</h3>
+              <p class="screenshot-subtext">Hundreds of handcrafted stages</p>
+            </div>
+
+            <!-- Screenshot 4: Daily Challenge -->
+            <div class="screenshot-item">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-daily-challenge.jpeg" alt="Arrow Brain Puzzle - Daily Challenge and Calendar" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <h3 class="screenshot-caption">Daily Brain Workout</h3>
+              <p class="screenshot-subtext">Earn daily stars &amp; bonus coins</p>
+            </div>
+
+            <!-- Screenshot 5: Trophies -->
+            <div class="screenshot-item">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-trophies.jpeg" alt="Arrow Brain Puzzle - Achievements and Trophies" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <h3 class="screenshot-caption">Achievements &amp; Trophies</h3>
+              <p class="screenshot-subtext">Unlock rewards for master solutions</p>
+            </div>
+
+            <!-- Screenshot 6: Leagues -->
+            <div class="screenshot-item">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-leagues.jpeg" alt="Arrow Brain Puzzle - Competitive Leagues" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <h3 class="screenshot-caption">Competitive Leagues</h3>
+              <p class="screenshot-subtext">Climb divisions and rank up</p>
+            </div>
+
+            <!-- Screenshot 7: Coin Shop -->
+            <div class="screenshot-item">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-coin-shop.jpeg" alt="Arrow Brain Puzzle - Coin Shop & Boosters" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <h3 class="screenshot-caption">Coin Shop &amp; Boosters</h3>
+              <p class="screenshot-subtext">Get hints, undos &amp; coin packages</p>
+            </div>
+
+            <!-- Screenshot 8: Settings -->
+            <div class="screenshot-item">
+              <div class="screenshot-mockup-frame">
+                <img src="./assets/images/screenshot-settings.jpeg" alt="Arrow Brain Puzzle - Settings and Privacy" class="screenshot-img" loading="lazy" width="400" height="700">
+              </div>
+              <h3 class="screenshot-caption">Game Settings &amp; Privacy</h3>
+              <p class="screenshot-subtext">Audio controls &amp; consent settings</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Play Download CTA Banner -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Ready to Challenge Your Brain?</h2>
+          <p>Download Arrow Brain Puzzle today and start solving strategic logic puzzles for free on Android.</p>
+          <div class="cta-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.reotech.arrow_brain_puzzle" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" id="bottomDownloadBtn">
+              <img src="./assets/icons/google-play.svg" alt="" class="btn-icon" width="24" height="24">
+              <span>Get it on Google Play</span>
+            </a>
+            <a href="./contact.html" class="btn btn-secondary btn-lg">
+              <span>Contact Support</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./index.html" class="logo-link">
+            <img src="./assets/icons/app-icon.svg" alt="Arrow Brain Puzzle" class="logo-icon" width="32" height="32">
+            <span>Arrow <span>Brain</span></span>
+          </a>
+          <p>Strategic logic puzzle game where every arrow moves in its own direction. Made for puzzle enthusiasts.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="./privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="./terms.html" class="footer-link">Terms of Service</a>
+          <a href="./contact.html" class="footer-link">Contact Support</a>
+          <a href="https://play.google.com/store/apps/details?id=com.reotech.arrow_brain_puzzle" target="_blank" rel="noopener noreferrer" class="footer-link">Google Play</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <span class="current-year">2026</span> REO Technologies. All rights reserved.
+        </div>
+        <div class="footer-disclaimer">
+          Google Play and the Google Play logo are trademarks of Google LLC.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla Scripts -->
+  <script src="./script.js"></script>
+</body>
+</html>
