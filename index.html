@@ -438,73 +438,164 @@
           </div>
         </div>
 
-        <!-- TAB 3: Board Elements & Legend -->
+        <!-- TAB 3: Interactive Board Elements & Visual Guide -->
         <div class="htp-tab-content" id="tab-elements" role="tabpanel">
-          <div class="guide-subsections-grid">
-            <div class="glass-card guide-block">
-              <h3>🧩 Core Board Legend</h3>
-              <div class="legend-list">
-                <div class="legend-item">
-                  <div class="legend-icon" style="color: #10b981; border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.1);">🟢</div>
-                  <div>
-                    <div class="legend-title">Start Cell (Origin)</div>
-                    <div class="legend-desc">Marked with an emerald glowing beacon. Always the starting point of your flow path.</div>
-                  </div>
-                </div>
+          <div class="board-elements-layout">
+            <!-- Left: Interactive Visual Board Inspector -->
+            <div class="elements-board-card">
+              <div class="elements-board-header">
+                <span class="sim-badge">🔍 Live Board Inspector</span>
+                <span style="font-size: 0.82rem; color: var(--text-muted);">Tap any element to inspect</span>
+              </div>
 
-                <div class="legend-item">
-                  <div class="legend-icon" style="color: var(--color-cyan);">➡️</div>
-                  <div>
-                    <div class="legend-title">Arrow Flow Indicators</div>
-                    <div class="legend-desc">Grid tiles providing directional orientation cues to assist your spatial reasoning.</div>
-                  </div>
+              <!-- 3x3 Elements Board Showcase -->
+              <div class="elements-inspector-grid" id="elementsInspectorGrid">
+                <!-- Tile 0: Start Origin -->
+                <div class="elem-tile elem-start elem-highlighted" data-type="start" role="button" tabindex="0" aria-label="Inspect Start Cell">
+                  <span class="elem-tile-icon">🟢</span>
+                  <span class="elem-tile-label">Start</span>
                 </div>
+                <!-- Tile 1: Arrow Right -->
+                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
+                  <span class="elem-tile-icon">➡️</span>
+                  <span class="elem-tile-label">Flow</span>
+                </div>
+                <!-- Tile 2: Arrow Down -->
+                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
+                  <span class="elem-tile-icon">⬇️</span>
+                  <span class="elem-tile-label">Flow</span>
+                </div>
+                <!-- Tile 3: Arrow Up -->
+                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
+                  <span class="elem-tile-icon">⬆️</span>
+                  <span class="elem-tile-label">Flow</span>
+                </div>
+                <!-- Tile 4: Obstacle / Void -->
+                <div class="elem-tile elem-obstacle" data-type="obstacle" role="button" tabindex="0" aria-label="Inspect Obstacle">
+                  <span class="elem-tile-icon">⬛</span>
+                  <span class="elem-tile-label">Barrier</span>
+                </div>
+                <!-- Tile 5: Arrow Down -->
+                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
+                  <span class="elem-tile-icon">⬇️</span>
+                  <span class="elem-tile-label">Flow</span>
+                </div>
+                <!-- Tile 6: Exit Cell -->
+                <div class="elem-tile elem-exit" data-type="exit" role="button" tabindex="0" aria-label="Inspect Exit Cell">
+                  <span class="elem-tile-icon">🏁</span>
+                  <span class="elem-tile-label">Exit</span>
+                </div>
+                <!-- Tile 7: Arrow Left -->
+                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
+                  <span class="elem-tile-icon">⬅️</span>
+                  <span class="elem-tile-label">Flow</span>
+                </div>
+                <!-- Tile 8: Arrow Left -->
+                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
+                  <span class="elem-tile-icon">⬅️</span>
+                  <span class="elem-tile-label">Flow</span>
+                </div>
+              </div>
 
-                <div class="legend-item">
-                  <div class="legend-icon" style="color: var(--text-muted); border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);">⬛</div>
-                  <div>
-                    <div class="legend-title">Grid Obstacles &amp; Voids</div>
-                    <div class="legend-desc">Inactive or blocked obstacles that cannot be entered, shaping intricate labyrinth corridors.</div>
-                  </div>
+              <!-- Inspector Feedback Info Panel -->
+              <div class="elem-inspector-panel" id="elemInspectorPanel">
+                <div class="elem-panel-header" id="inspectorHeader">
+                  <span>🟢</span> <span>Start Cell (Path Origin)</span>
                 </div>
-
-                <div class="legend-item">
-                  <div class="legend-icon" style="color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.1);">🏁</div>
-                  <div>
-                    <div class="legend-title">Exit Cell (Final Destination)</div>
-                    <div class="legend-desc">The designated finish tile where your 100% complete continuous line must conclude.</div>
-                  </div>
-                </div>
+                <p class="elem-panel-desc" id="inspectorDesc">
+                  The designated emerald origin beacon. Your unbroken path always begins here. Once you move away from the start cell, you cannot step on it again.
+                </p>
               </div>
             </div>
 
-            <div class="glass-card guide-block">
-              <h3>✨ Visual Effects &amp; Scoring</h3>
-              <div class="legend-list">
-                <div class="legend-item">
-                  <div class="legend-icon" style="color: #c084fc; border-color: rgba(168,85,247,0.3); background: rgba(168,85,247,0.1);">✨</div>
-                  <div>
-                    <div class="legend-title">Radiant Neon Trail</div>
-                    <div class="legend-desc">The glowing continuous stroke that traces your swipe path across the board in real time.</div>
+            <!-- Right: Interactive Clickable Element Detail Cards -->
+            <div class="element-cards-stack">
+              <!-- Element 1: Start Cell -->
+              <div class="element-detail-card emerald-edge active" data-type="start" tabindex="0" role="button">
+                <div class="elem-card-header">
+                  <div class="elem-card-title-wrap">
+                    <span class="elem-card-icon">🟢</span>
+                    <span class="elem-card-title">Start Cell (Origin)</span>
                   </div>
+                  <span class="elem-tag-badge" style="color: #10b981; border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.1);">Origin Anchor</span>
                 </div>
-
-                <div class="legend-item">
-                  <div class="legend-icon" style="color: #fbbf24; border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.1);">⭐⭐⭐</div>
-                  <div>
-                    <div class="legend-title">3-Star Perfect Rating</div>
-                    <div class="legend-desc">Awarded for solving the board with 0 hints used, optimal path efficiency, and fast solve time.</div>
-                  </div>
-                </div>
-
-                <div class="legend-item">
-                  <div class="legend-icon" style="color: #38bdf8; border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.1);">🛡️</div>
-                  <div>
-                    <div class="legend-title">Streak Freeze Shield</div>
-                    <div class="legend-desc">Protects your Daily Challenge streak in case you miss a calendar day of play.</div>
-                  </div>
-                </div>
+                <p class="elem-card-body">
+                  Marked with an emerald glowing beacon. The continuous line always originates here. You cannot re-enter the start cell once left.
+                </p>
+                <span class="elem-pro-tip">💡 Pro Tip: Begin every puzzle by scanning the available exits leaving this cell.</span>
               </div>
+
+              <!-- Element 2: Arrow Indicators -->
+              <div class="element-detail-card" data-type="arrow" tabindex="0" role="button">
+                <div class="elem-card-header">
+                  <div class="elem-card-title-wrap">
+                    <span class="elem-card-icon">➡️</span>
+                    <span class="elem-card-title">Arrow Flow Indicators</span>
+                  </div>
+                  <span class="elem-tag-badge">Directional Cue</span>
+                </div>
+                <p class="elem-card-body">
+                  Strategic tiles providing directional orientation cues. They guide your visual trajectory and help identify forced moves and natural loops.
+                </p>
+                <span class="elem-pro-tip">💡 Pro Tip: Arrow tiles in corners have restricted paths—solve them first!</span>
+              </div>
+
+              <!-- Element 3: Obstacles & Inactive Voids -->
+              <div class="element-detail-card" data-type="obstacle" tabindex="0" role="button">
+                <div class="elem-card-header">
+                  <div class="elem-card-title-wrap">
+                    <span class="elem-card-icon">⬛</span>
+                    <span class="elem-card-title">Grid Obstacles &amp; Voids</span>
+                  </div>
+                  <span class="elem-tag-badge" style="color: var(--text-muted); border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);">Impassable Barrier</span>
+                </div>
+                <p class="elem-card-body">
+                  Blocked or inactive tiles that cannot be entered. They carve intricate maze channels, bottleneck corridors, and complex routing challenges.
+                </p>
+                <span class="elem-pro-tip">💡 Pro Tip: Treat obstacles as boundaries to find forced one-way passages.</span>
+              </div>
+
+              <!-- Element 4: Exit Cell -->
+              <div class="element-detail-card amber-edge" data-type="exit" tabindex="0" role="button">
+                <div class="elem-card-header">
+                  <div class="elem-card-title-wrap">
+                    <span class="elem-card-icon">🏁</span>
+                    <span class="elem-card-title">Exit Cell (Finish Target)</span>
+                  </div>
+                  <span class="elem-tag-badge" style="color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.1);">100% Goal</span>
+                </div>
+                <p class="elem-card-body">
+                  The designated final target marked with a checkered flag. You must visit 100% of all other arrow tiles before entering the Exit.
+                </p>
+                <span class="elem-pro-tip">💡 Pro Tip: Work backwards from the Exit to protect its entry neighbor from premature steps.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary Visual FX, Scoring & Boosters Cards -->
+          <div class="elements-fx-grid">
+            <div class="element-fx-card">
+              <div class="element-fx-icon" style="color: var(--color-purple);">✨</div>
+              <h4>Radiant Neon Trail</h4>
+              <p>The luminous continuous stroke tracing your swipe path in real time. Unlock custom neon themes in the Coin Shop.</p>
+            </div>
+
+            <div class="element-fx-card">
+              <div class="element-fx-icon" style="color: #fbbf24;">⭐⭐⭐</div>
+              <h4>3-Star Perfect Rating</h4>
+              <p>Awarded for 100% path efficiency with 0 hints used. Preserved by using Undo rather than full board resets.</p>
+            </div>
+
+            <div class="element-fx-card">
+              <div class="element-fx-icon" style="color: #38bdf8;">🛡️</div>
+              <h4>Streak Freeze Shield</h4>
+              <p>Protects your consecutive Daily Challenge streak if you miss a day, safeguarding your trophy milestones.</p>
+            </div>
+
+            <div class="element-fx-card">
+              <div class="element-fx-icon" style="color: #10b981;">💡</div>
+              <h4>Dynamic Hint Spotlight</h4>
+              <p>Instantly illuminates the guaranteed optimal next cell on the board when encountering challenging bottlenecks.</p>
             </div>
           </div>
         </div>

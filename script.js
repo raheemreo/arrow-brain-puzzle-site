@@ -298,6 +298,96 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // 6. Interactive Board Elements Inspector (Tab 3)
+  const elemTiles = document.querySelectorAll('.elem-tile');
+  const elemCards = document.querySelectorAll('.element-detail-card');
+  const inspectorHeader = document.getElementById('inspectorHeader');
+  const inspectorDesc = document.getElementById('inspectorDesc');
+
+  const elementInfoMap = {
+    start: {
+      icon: '🟢',
+      title: 'Start Cell (Path Origin)',
+      tag: 'Origin Anchor',
+      desc: 'The designated emerald origin beacon. Your unbroken path always begins here. Once you move away from the start cell, you cannot step on it again.'
+    },
+    arrow: {
+      icon: '➡️',
+      title: 'Arrow Directional Flow Indicators',
+      tag: 'Directional Cue',
+      desc: 'Strategic indicators embedded across the grid. They orient your path and help you spot forced moves, loops, and corners early.'
+    },
+    obstacle: {
+      icon: '⬛',
+      title: 'Grid Obstacles & Inactive Voids',
+      tag: 'Impassable Barrier',
+      desc: 'Dark blocked or void cells that cannot be entered. They shape intricate labyrinth corridors, bottlenecks, and force strategic path turns.'
+    },
+    exit: {
+      icon: '🏁',
+      title: 'Exit Cell (Final Finish Target)',
+      tag: 'Destination Goal',
+      desc: 'The final destination marked with a golden flag. You must visit 100% of all valid arrow cells on the board before stepping into the Exit.'
+    },
+    trail: {
+      icon: '✨',
+      title: 'Radiant Neon Flow Trail',
+      tag: 'Visual FX / Shop',
+      desc: 'The dynamic glowing trail that traces your swipe trajectory across the board in real time. Can be customized with unlockable colors in the Coin Shop.'
+    },
+    hint: {
+      icon: '💡',
+      title: 'Dynamic Hint Spotlight',
+      tag: 'Smart Assistance',
+      desc: 'Highlights the single guaranteed optimal next move when requested via coins or rewarded video, preventing game-ending dead-ends.'
+    }
+  };
+
+  const selectBoardElement = (type) => {
+    if (!elementInfoMap[type]) return;
+
+    // Highlight tiles
+    elemTiles.forEach(tile => {
+      if (tile.getAttribute('data-type') === type) {
+        tile.classList.add('elem-highlighted');
+      } else {
+        tile.classList.remove('elem-highlighted');
+      }
+    });
+
+    // Highlight cards
+    elemCards.forEach(card => {
+      if (card.getAttribute('data-type') === type) {
+        card.classList.add('active');
+      } else {
+        card.classList.remove('active');
+      }
+    });
+
+    // Update inspector panel
+    if (inspectorHeader && inspectorDesc) {
+      const data = elementInfoMap[type];
+      inspectorHeader.innerHTML = `<span>${data.icon}</span> <span>${data.title}</span>`;
+      inspectorDesc.textContent = data.desc;
+    }
+  };
+
+  if (elemTiles.length > 0 || elemCards.length > 0) {
+    elemTiles.forEach(tile => {
+      tile.addEventListener('click', () => {
+        const type = tile.getAttribute('data-type');
+        selectBoardElement(type);
+      });
+    });
+
+    elemCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const type = card.getAttribute('data-type');
+        selectBoardElement(type);
+      });
+    });
+  }
+
   // 7. Copy Support Info Template (Contact Page)
   const copyTemplateBtn = document.getElementById('copyTemplateBtn');
   const templateBox = document.getElementById('supportTemplateText');
