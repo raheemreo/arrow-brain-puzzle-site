@@ -79,6 +79,9 @@ html {
   scroll-behavior: smooth;
   color-scheme: dark;
   font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 body {
@@ -88,6 +91,8 @@ body {
   line-height: 1.65;
   min-height: 100vh;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -2382,12 +2387,13 @@ h1, h2, h3, h4, h5, h6 {
     padding: 56px 0;
   }
 
-  /* Mobile Navigation Drawer */
+  /* Mobile Navigation Modal - Only shows on Menu button click, zero off-canvas sliding screen */
   .mobile-toggle {
     display: flex;
   }
 
   .nav-menu {
+    display: none;
     position: fixed;
     top: var(--nav-height);
     left: 0;
@@ -2401,14 +2407,17 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: flex-start;
     padding: 36px 20px;
     gap: 20px;
-    transform: translateX(100%);
-    transition: transform var(--transition-normal);
     z-index: 999;
     overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
   }
 
   .nav-menu.open {
-    transform: translateX(0);
+    display: flex;
+    opacity: 1;
+    visibility: visible;
   }
 
   .nav-link {
