@@ -15,6 +15,7 @@ Once deployed to GitHub Pages, the public URLs for your store listings and app s
 | **Website Homepage** | `https://raheemreo.github.io/arrow-brain-puzzle-site/` | Store Listing Website URL, Socials |
 | **Privacy Policy** | `https://raheemreo.github.io/arrow-brain-puzzle-site/privacy.html` | Google Play Console &rarr; App Content &rarr; Privacy Policy, In-App Settings |
 | **Terms of Service** | `https://raheemreo.github.io/arrow-brain-puzzle-site/terms.html` | In-App Terms link, Google Play store description |
+| **Data Deletion Policy** | `https://raheemreo.github.io/arrow-brain-puzzle-site/data-deletion.html` | Google Play Console Data Safety (Data deletion request URL) |
 | **Player Support** | `https://raheemreo.github.io/arrow-brain-puzzle-site/contact.html` | Store Listing Support URL, In-App Help button |
 
 ---
@@ -27,14 +28,15 @@ arrow_puzzle_website/
 ├── index.html          # Main landing page (Hero, Demo, Features, How to Play, Screenshots, Play Store CTA)
 ├── privacy.html        # Google Play Data Safety compliant Privacy Policy
 ├── terms.html          # Terms of Service (Virtual currency, Hints, Rewarded ads disclosures)
+├── data-deletion.html  # Google Play compliant User Data Deletion Request page
 ├── contact.html        # Support page with diagnostic email template and direct mailto link
 ├── 404.html            # Custom game-themed 404 page ("This arrow went the wrong way")
 ├── style.css           # Vanilla CSS Design System (Deep Navy, Cyber Cyan, Purple, Glassmorphism)
 ├── script.js           # Lightweight vanilla JS (Accessible mobile menu, interactive demo, year updater)
 ├── README.md           # Deployment documentation and URL guide
 └── assets/
-    ├── icons/          # Vector SVG icons (App icon, directional arrows, Google Play badge)
-    └── images/         # Game screenshot mockups (Crisp SVG illustrations & drop-in PNG slots)
+    ├── icons/          # Vector SVG & WebP icons (App icon, directional arrows, Play Store icon)
+    └── images/         # Official in-game screenshots
 ```
 
 ---
