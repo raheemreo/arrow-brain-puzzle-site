@@ -6,7 +6,7 @@
   <title>About Us - Arrow Brain Puzzle | REO Technologies</title>
   
   <!-- SEO & Brand Metadata -->
-  <meta name="description" content="Discover the mission, philosophy, and engineering behind Arrow Brain Puzzle and REO Technologies. Crafting intelligent, minimalist logic puzzle games for Android.">
+  <meta name="description" content="Discover the mission, design philosophy, craftsmanship, and engineering roadmap behind Arrow Brain Puzzle by REO Technologies. Smart, zen-focused spatial logic puzzle games for Android.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://raheemreo.github.io/arrow-brain-puzzle-site/about.html">
 
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://raheemreo.github.io/arrow-brain-puzzle-site/about.html">
   <meta property="og:title" content="About Us - Arrow Brain Puzzle | REO Technologies">
-  <meta property="og:description" content="Learn about REO Technologies and the design philosophy behind Arrow Brain Puzzle.">
+  <meta property="og:description" content="Explore the studio story, core philosophy, and technical craftsmanship behind Arrow Brain Puzzle.">
   <meta property="og:image" content="./assets/icons/app-icon.svg">
 
   <!-- Mobile & Theme -->
@@ -65,15 +65,42 @@
     </div>
   </header>
 
+  <!-- Sticky Quick-Jump Navigation Bar -->
+  <div class="about-subnav-wrapper" aria-label="About Page Quick Navigation">
+    <div class="container">
+      <nav class="about-subnav">
+        <a href="#overview" class="about-subnav-link active"><span>🌟</span> Overview</a>
+        <a href="#story" class="about-subnav-link"><span>📖</span> Our Story</a>
+        <a href="#philosophy" class="about-subnav-link"><span>💡</span> Philosophy</a>
+        <a href="#mechanics" class="about-subnav-link"><span>🧩</span> Mechanics</a>
+        <a href="#roadmap" class="about-subnav-link"><span>🗺️</span> Roadmap</a>
+        <a href="#craftsmanship" class="about-subnav-link"><span>🎨</span> Gallery</a>
+        <a href="#reviews" class="about-subnav-link"><span>⭐</span> Community</a>
+        <a href="#faq" class="about-subnav-link"><span>❓</span> FAQ</a>
+        <a href="#connect" class="about-subnav-link"><span>✉️</span> Connect</a>
+      </nav>
+    </div>
+  </div>
+
   <!-- About Us Main Content -->
   <main id="main-content" class="container">
-    <!-- Hero Banner -->
-    <section class="about-hero">
+    
+    <!-- Hero Banner Section -->
+    <section class="about-hero" id="overview">
       <div class="about-hero-badge">Indie Game Studio</div>
       <h1>Crafting Smart, Modern <span class="text-gradient">Brain Puzzles</span></h1>
       <p class="lead">
-        At <strong>REO Technologies</strong>, we create minimalist, intellectually stimulating games designed to train spatial logic, sharpen focus, and deliver a deeply satisfying, relaxing puzzle experience.
+        At <strong>REO Technologies</strong>, we design minimalist, intellectually stimulating mobile experiences that train spatial logic, sharpen focus, and deliver pure, uninterrupted puzzle satisfaction.
       </p>
+      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <a href="https://play.google.com/store/apps/details?id=com.reotech.arrow_brain_puzzle" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+          <img src="./assets/icons/google-play-store-icon.webp" alt="Google Play" class="btn-icon" width="22" height="22">
+          <span>Play on Android</span>
+        </a>
+        <a href="#story" class="btn btn-secondary btn-lg">
+          <span>Explore Our Story ↓</span>
+        </a>
+      </div>
     </section>
 
     <!-- Key Studio & Game Stats -->
@@ -88,7 +115,7 @@
       </div>
       <div class="about-stat-card">
         <div class="stat-num">60<span>FPS</span></div>
-        <div class="stat-title">Smooth Hardware Rendering</div>
+        <div class="stat-title">Smooth Vector Rendering</div>
       </div>
       <div class="about-stat-card">
         <div class="stat-num">0<span>⚡</span></div>
@@ -96,44 +123,166 @@
       </div>
     </section>
 
-    <!-- Our Story & Mission -->
-    <section class="about-section-block">
-      <div class="about-story-card">
-        <h2>The Story Behind <span class="text-gradient">Arrow Brain Puzzle</span></h2>
-        <p>
-          In a mobile gaming landscape increasingly crowded with clone mechanics, aggressive timers, and disruptive microtransactions, we founded <strong>REO Technologies</strong> with a clear vision: to create thoughtful, zen-focused brain puzzle experiences that respect the player's time and intelligence.
-        </p>
-        <p>
-          <strong>Arrow Brain Puzzle</strong> was born from a fundamental geometric question: <em>How complex and satisfying can a pathfinding puzzle become when every single tile dictates its own directional momentum?</em> By combining directional constraints with continuous circuit-filling gameplay, we built a puzzle experience where every single level feels like a clean, elegant mathematical deduction.
-        </p>
-        <p>
-          Whether you have two minutes while commuting or an hour to unwind before sleep, Arrow Brain Puzzle provides a sanctuary of calm, focused mental exercise.
-        </p>
+    <!-- Interactive Experience Explorer (Tabs) -->
+    <section class="about-section-block" id="story">
+      <div class="section-header">
+        <div class="section-tag">Interactive Explorer</div>
+        <h2>Deep Dive Into Our <span class="text-gradient">World</span></h2>
+        <p>Choose an area below to explore our origin story, pathfinding logic, and development roadmap.</p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="about-tabs-nav" role="tablist">
+        <button type="button" class="about-tab-btn active" data-about-tab="tab-story" role="tab" aria-selected="true">
+          <span>📖</span> The Studio Story
+        </button>
+        <button type="button" class="about-tab-btn" data-about-tab="tab-mechanics" role="tab" aria-selected="false">
+          <span>🧩</span> Directional Mechanics
+        </button>
+        <button type="button" class="about-tab-btn" data-about-tab="tab-roadmap" role="tab" aria-selected="false">
+          <span>🗺️</span> Evolution Roadmap
+        </button>
+      </div>
+
+      <!-- Tab Content 1: Studio Story -->
+      <div class="about-tab-content active" id="tab-story" role="tabpanel">
+        <div class="about-story-card">
+          <h3>The Origin of <span class="text-gradient">Arrow Brain Puzzle</span></h3>
+          <p>
+            In a mobile gaming landscape increasingly crowded with cloned mechanics, aggressive pay-to-win timers, and disruptive full-screen ads, we founded <strong>REO Technologies</strong> with a single foundational goal: <em>to build a distraction-free sanctuary for puzzle enthusiasts who love pure deductive reasoning</em>.
+          </p>
+          <p>
+            The spark for Arrow Brain Puzzle came from an elegant geometric challenge: What happens when you combine classic continuous pathfinding (visiting every square once) with rigid, individual tile directional momentum? Instead of freely moving in any available direction, the player must harmonize with the board's directional constraints—creating a mental dance between forward foresight and reverse engineering.
+          </p>
+          <p>
+            Every single puzzle in Arrow Brain Puzzle is mathematically modeled and hand-verified. There are no dead-end guessing games, no artificial timers pressuring you, and no paywalls standing between you and the next level.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tab Content 2: Mechanics & Interactive Arrow Playground -->
+      <div class="about-tab-content" id="tab-mechanics" role="tabpanel">
+        <div class="about-story-card">
+          <h3>Mathematical Logic &amp; Spatial Constraints</h3>
+          <p>
+            The core gameplay is rooted in graph theory and spatial topology. The player starts at cell <strong style="color: var(--color-emerald);">[Start]</strong> and must reach cell <strong style="color: var(--color-cyan);">[Exit]</strong> while traversing all intermediate arrow tiles exactly once.
+          </p>
+          
+          <div class="arrow-interactive-demo-card">
+            <h4 style="font-size: 1.2rem; margin-bottom: 6px; color: var(--text-primary);">Interactive Directional Logic Tester</h4>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 0;">
+              Tap any directional arrow below to explore how it guides momentum across the board:
+            </p>
+
+            <div class="arrow-interactive-grid">
+              <div class="arrow-interactive-tile selected" data-direction="right" tabindex="0" role="button" aria-label="Right Arrow Logic">
+                <div class="tile-icon">➡️</div>
+                <div class="tile-label">Right Tile</div>
+              </div>
+              <div class="arrow-interactive-tile" data-direction="down" tabindex="0" role="button" aria-label="Down Arrow Logic">
+                <div class="tile-icon">⬇️</div>
+                <div class="tile-label">Down Tile</div>
+              </div>
+              <div class="arrow-interactive-tile" data-direction="left" tabindex="0" role="button" aria-label="Left Arrow Logic">
+                <div class="tile-icon">⬅️</div>
+                <div class="tile-label">Left Tile</div>
+              </div>
+              <div class="arrow-interactive-tile" data-direction="up" tabindex="0" role="button" aria-label="Up Arrow Logic">
+                <div class="tile-icon">⬆️</div>
+                <div class="tile-label">Up Tile</div>
+              </div>
+            </div>
+
+            <div class="arrow-logic-explanation" id="arrowLogicExplanation">
+              <strong>➡️ Right Tile:</strong> Forces path exit to the East. When entering from the left, this tile locks in linear momentum and prevents premature upward or downward branching.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 3: Roadmap Timeline -->
+      <div class="about-tab-content" id="tab-roadmap" role="tabpanel">
+        <div class="about-story-card">
+          <h3>Our Journey &amp; Future Milestones</h3>
+          <p>
+            We are committed to long-term game support and continuous innovation. Here is a look at where we started, what we've achieved, and where we're heading next:
+          </p>
+
+          <div class="roadmap-timeline">
+            <!-- Step 1 -->
+            <div class="roadmap-item completed">
+              <div class="roadmap-dot">✓</div>
+              <div class="roadmap-content">
+                <div class="roadmap-header">
+                  <h3>Phase 1: Spatial Engine &amp; Core Math</h3>
+                  <span class="roadmap-badge completed">Completed</span>
+                </div>
+                <p>Designed the foundational Hamiltonian path generation engine, established directional tile mechanics, and engineered responsive touch controls.</p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="roadmap-item completed">
+              <div class="roadmap-dot">✓</div>
+              <div class="roadmap-content">
+                <div class="roadmap-header">
+                  <h3>Phase 2: 100 Hand-Crafted Levels &amp; Hint AI</h3>
+                  <span class="roadmap-badge completed">Completed</span>
+                </div>
+                <p>Curated a progressive difficulty curve from 4x4 tutorials to 8x8 master mazes. Added smart step-by-step hint assistance and non-intrusive cooldowns.</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="roadmap-item in-progress">
+              <div class="roadmap-dot">⚡</div>
+              <div class="roadmap-content">
+                <div class="roadmap-header">
+                  <h3>Phase 3: Daily Challenges, Trophies &amp; Leagues</h3>
+                  <span class="roadmap-badge in-progress">Active Build</span>
+                </div>
+                <p>Introduced daily procedural challenges with streak trackers, collectible mastery trophies, competitive leagues, and seamless offline progress saving.</p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="roadmap-item future">
+              <div class="roadmap-dot">🔮</div>
+              <div class="roadmap-content">
+                <div class="roadmap-header">
+                  <h3>Phase 4: Community Level Editor &amp; Tablet UI</h3>
+                  <span class="roadmap-badge future">Upcoming</span>
+                </div>
+                <p>Developing an in-game custom puzzle builder allowing players to create and share their own directional brain teasers with the global community.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Core Pillars & Design Philosophy -->
-    <section class="about-section-block">
+    <section class="about-section-block" id="philosophy">
       <div class="section-header">
-        <div class="section-tag">Our Philosophy</div>
+        <div class="section-tag">Core Principles</div>
         <h2>What Drives Our <span class="text-gradient">Craft</span></h2>
-        <p>Four core principles guide every single mechanic, visual effect, and level we design.</p>
+        <p>Four core principles guide every single mechanic, visual effect, and level we build.</p>
       </div>
 
       <div class="about-values-grid">
         <div class="about-value-card">
-          <div class="about-value-icon">🧩</div>
+          <div class="about-value-icon">🧠</div>
           <h3>Pure Deterministic Logic</h3>
           <p>
-            No arbitrary guessing, no luck-based rng, and no paywalled progression. Every board has an intentional, logically discoverable continuous path from Start to Exit.
+            No arbitrary guessing, no luck-based randomness, and zero paywalled progression. Every board is guaranteed to have a clean, discoverable continuous path.
           </p>
         </div>
 
         <div class="about-value-card">
           <div class="about-value-icon">🎨</div>
-          <h3>Zen &amp; Futuristic Aesthetics</h3>
+          <h3>Zen &amp; Futuristic Minimalism</h3>
           <p>
-            Immersive cyber dark tones, neon cyan and purple glows, crisp directional animations, and subtle tactile haptics crafted to keep you in a relaxed state of flow.
+            Immersive cyber dark tones, neon cyan and purple glows, crisp directional animations, and subtle tactile haptics crafted to keep you in a relaxed flow state.
           </p>
         </div>
 
@@ -141,7 +290,7 @@
           <div class="about-value-icon">⚖️</div>
           <h3>Fair &amp; Transparent Play</h3>
           <p>
-            We believe gameplay should always be accessible. We provide generous free hints, smart cooldown ladders, and make rewarded video ads strictly voluntary.
+            We believe puzzle gaming should always be accessible. We provide generous free hints, smart cooldown ladders, and make rewarded video ads strictly voluntary.
           </p>
         </div>
 
@@ -155,23 +304,23 @@
       </div>
     </section>
 
-    <!-- Engineering & Craftsmanship -->
-    <section class="about-section-block">
+    <!-- Technical Craftsmanship & Engineering -->
+    <section class="about-section-block" id="mechanics">
       <div class="about-story-card">
         <h2>Engineering &amp; Technical <span class="text-gradient">Excellence</span></h2>
         <p>
-          Great games require rock-solid engineering. Arrow Brain Puzzle is built with modern performance in mind:
+          Exceptional gameplay requires rock-solid engineering. Arrow Brain Puzzle is architected for speed, responsiveness, and maximum battery efficiency:
         </p>
         <ul>
           <li><strong>Zero Latency Input:</strong> Highly responsive touch and drag handling designed for precision grid navigation.</li>
-          <li><strong>Offline-First Engine:</strong> Core puzzle levels, streak mechanics, and progress tracking work seamlessly without needing an active internet connection.</li>
-          <li><strong>Battery Efficient:</strong> Optimized vector rendering engine that conserves device battery life and prevents overheating.</li>
+          <li><strong>Offline-First Engine:</strong> Core puzzle levels, streak mechanics, and progress tracking work seamlessly without an active internet connection.</li>
+          <li><strong>Battery Efficient:</strong> Optimized vector rendering engine that conserves device battery life and prevents thermal throttling.</li>
           <li><strong>Cross-Device Scaling:</strong> Adaptive layouts designed for high-resolution phones, foldable screens, and Android tablets.</li>
         </ul>
 
         <div class="about-tech-badges">
           <div class="about-tech-badge"><span>✓</span> Android Native &amp; Flutter</div>
-          <div class="about-tech-badge"><span>✓</span> Offline Playable</div>
+          <div class="about-tech-badge"><span>✓</span> 100% Offline Playable</div>
           <div class="about-tech-badge"><span>✓</span> 60 FPS Vector Animations</div>
           <div class="about-tech-badge"><span>✓</span> Google Play Billing</div>
           <div class="about-tech-badge"><span>✓</span> Zero Invasive Trackers</div>
@@ -179,21 +328,198 @@
       </div>
     </section>
 
+    <!-- Visual Craftsmanship Showcase (Gallery) -->
+    <section class="about-section-block" id="craftsmanship">
+      <div class="section-header">
+        <div class="section-tag">Visual Showcase</div>
+        <h2>Crafted With <span class="text-gradient">Attention to Detail</span></h2>
+        <p>Take a look at the polished in-game interface, level maps, and reward systems.</p>
+      </div>
+
+      <div class="craft-gallery-grid">
+        <!-- Gallery Card 1 -->
+        <div class="craft-card">
+          <div class="craft-img-wrap">
+            <img src="./assets/images/screenshot-game-screen.jpeg" alt="Arrow Brain Puzzle Strategic Gameplay Board" loading="lazy">
+          </div>
+          <div class="craft-info">
+            <h4>Strategic Pathfinding Board</h4>
+            <p>Clean high-contrast grid where neon directional arrows illuminate as your continuous path flows across the board.</p>
+          </div>
+        </div>
+
+        <!-- Gallery Card 2 -->
+        <div class="craft-card">
+          <div class="craft-img-wrap">
+            <img src="./assets/images/screenshot-daily-challenge.jpeg" alt="Daily Puzzle Streak Challenge" loading="lazy">
+          </div>
+          <div class="craft-info">
+            <h4>Daily Brain Workout</h4>
+            <p>Every single day brings a fresh puzzle challenge to test your deduction skills and keep your mental streak alive.</p>
+          </div>
+        </div>
+
+        <!-- Gallery Card 3 -->
+        <div class="craft-card">
+          <div class="craft-img-wrap">
+            <img src="./assets/images/screenshot-trophies.jpeg" alt="Achievements and Trophies Screen" loading="lazy">
+          </div>
+          <div class="craft-info">
+            <h4>Trophies &amp; Milestones</h4>
+            <p>Earn distinctive trophies as you conquer difficult chapters, achieve perfect stars, and climb the competitive ladder.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Player Testimonials & Community Feedback -->
+    <section class="about-section-block" id="reviews">
+      <div class="section-header">
+        <div class="section-tag">Community Voices</div>
+        <h2>Loved by <span class="text-gradient">Puzzle Enthusiasts</span></h2>
+        <p>Here is what players have to say about the relaxing and brain-stretching experience.</p>
+      </div>
+
+      <div class="about-reviews-grid">
+        <div class="about-review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">
+              "Finally a logic puzzle on Android that doesn't bombard you with forced 30-second video ads every 2 moves. Pure logic, great soundtrack, and very satisfying."
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">M</div>
+            <div class="author-info">
+              <div class="author-name">Marcus K.</div>
+              <div class="author-badge">Verified Player</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">
+              "The arrow constraint mechanic is brilliant. It feels like chess and pathfinding combined. The dark neon aesthetic is so easy on the eyes at night."
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">S</div>
+            <div class="author-info">
+              <div class="author-name">Sarah L.</div>
+              <div class="author-badge">Daily Streak Champion</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">
+              "Works completely offline on flights. When you get stuck, the hint system nudges you in the right direction without spoiling the fun. Highly recommended!"
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">D</div>
+            <div class="author-info">
+              <div class="author-name">David T.</div>
+              <div class="author-badge">Level 100 Master</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions (Interactive Accordion) -->
+    <section class="about-section-block" id="faq">
+      <div class="section-header">
+        <div class="section-tag">Studio FAQ</div>
+        <h2>Frequently Asked <span class="text-gradient">Questions</span></h2>
+        <p>Everything you need to know about game development, updates, and studio policies.</p>
+      </div>
+
+      <div class="about-faq-list">
+        <!-- FAQ Item 1 -->
+        <div class="about-faq-item active">
+          <button type="button" class="about-faq-btn" aria-expanded="true">
+            <span class="about-faq-title">Will you be releasing more puzzle levels in future updates?</span>
+            <span class="about-faq-chevron">▼</span>
+          </button>
+          <div class="about-faq-content">
+            Yes! We are actively designing new level packs with larger grid matrices (up to 10x10) and exciting new puzzle modifiers (such as two-way split arrows and locked teleport nodes). Updates are rolled out regularly via Google Play.
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="about-faq-item">
+          <button type="button" class="about-faq-btn" aria-expanded="false">
+            <span class="about-faq-title">Can I play the entire game completely offline without Wi-Fi?</span>
+            <span class="about-faq-chevron">▼</span>
+          </button>
+          <div class="about-faq-content">
+            Absolutely. All 100+ core levels, star ratings, and progress saves are stored locally on your device. You do not need an active internet connection to solve puzzles, track streaks, or play on commutes. Internet is only required if you choose to watch voluntary rewarded video ads for bonus coins.
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="about-faq-item">
+          <button type="button" class="about-faq-btn" aria-expanded="false">
+            <span class="about-faq-title">How does REO Technologies keep the game free without spamming ads?</span>
+            <span class="about-faq-chevron">▼</span>
+          </button>
+          <div class="about-faq-content">
+            We respect player immersion. We do not show intrusive mid-puzzle popups or unskippable spam ads. Instead, we use voluntary rewarded video ads where players freely opt-in to earn bonus coins or extra hints, alongside an optional one-time "Remove Ads" in-app purchase.
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="about-faq-item">
+          <button type="button" class="about-faq-btn" aria-expanded="false">
+            <span class="about-faq-title">How can I submit feedback, report a glitch, or suggest a level design?</span>
+            <span class="about-faq-chevron">▼</span>
+          </button>
+          <div class="about-faq-content">
+            We love hearing from our community! You can email our development team directly at <a href="mailto:reodevelopers@gmail.com" style="color: var(--color-cyan); font-weight: 600;">reodevelopers@gmail.com</a>. We personally read every email and incorporate player suggestions into our development roadmap.
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="about-faq-item">
+          <button type="button" class="about-faq-btn" aria-expanded="false">
+            <span class="about-faq-title">Is there an iOS or web version planned in the roadmap?</span>
+            <span class="about-faq-chevron">▼</span>
+          </button>
+          <div class="about-faq-content">
+            We are currently optimizing the Android release to perfection on Google Play. An Apple iOS release and an interactive WebGL browser version are planned for Phase 4 of our roadmap.
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Team & Studio Contact Card -->
-    <section class="about-section-block">
+    <section class="about-section-block" id="connect">
       <div class="about-team-card">
         <div class="about-team-info">
-          <h3>Meet REO Technologies</h3>
+          <h3>Connect with REO Technologies</h3>
           <p>
-            We are passionate independent game creators based around the globe. We read every player email, review every level suggestion, and continuously roll out new updates to make Arrow Brain Puzzle the premier spatial logic game on Android.
+            Have questions about Arrow Brain Puzzle, partnership opportunities, or feedback on a level? Our developer inbox is always open.
           </p>
+          <div class="copy-pill-wrap">
+            <a href="mailto:reodevelopers@gmail.com?subject=Arrow%20Brain%20Puzzle%20Studio%20Inquiry" class="btn btn-primary">
+              <span>✉ Email reodevelopers@gmail.com</span>
+            </a>
+            <button type="button" class="btn btn-secondary" id="copyStudioEmailBtn" aria-label="Copy Studio Email Address">
+              <span>📋 Copy Email</span>
+            </button>
+          </div>
+          <div class="copy-email-toast" id="studioCopyToast" aria-live="polite"></div>
         </div>
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="mailto:reodevelopers@gmail.com?subject=Arrow%20Brain%20Puzzle%20Studio%20Inquiry" class="btn btn-primary btn-lg">
-            <span>✉ Contact Studio</span>
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.reotech.arrow_brain_puzzle" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg">
-            <span>Get on Google Play</span>
+
+        <div>
+          <a href="https://play.google.com/store/apps/details?id=com.reotech.arrow_brain_puzzle" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="box-shadow: 0 0 28px rgba(0, 240, 255, 0.35);">
+            <img src="./assets/icons/google-play-store-icon.webp" alt="Google Play" class="btn-icon" width="22" height="22">
+            <span>Download on Google Play</span>
           </a>
         </div>
       </div>
@@ -205,13 +531,14 @@
         <div>
           <h4 style="font-size: 1.15rem; margin-bottom: 6px; color: var(--color-cyan);">Explore Official Resources</h4>
           <p style="color: var(--text-secondary); font-size: 0.94rem; margin-bottom: 0;">
-            Read our policies, get diagnostic help, or review our player agreement:
+            Review our player agreement, data safety standards, and support channels:
           </p>
         </div>
         <div style="display: flex; gap: 14px; flex-wrap: wrap;">
           <a href="./privacy.html" class="btn btn-secondary" style="font-size: 0.88rem; padding: 8px 16px;">Privacy Policy</a>
           <a href="./terms.html" class="btn btn-secondary" style="font-size: 0.88rem; padding: 8px 16px;">Terms of Service</a>
           <a href="./disclaimer.html" class="btn btn-secondary" style="font-size: 0.88rem; padding: 8px 16px;">Disclaimer</a>
+          <a href="./data-deletion.html" class="btn btn-secondary" style="font-size: 0.88rem; padding: 8px 16px;">Data Deletion</a>
           <a href="./contact.html" class="btn btn-secondary" style="font-size: 0.88rem; padding: 8px 16px;">Player Support</a>
         </div>
       </div>

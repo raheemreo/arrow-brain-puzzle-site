@@ -594,4 +594,126 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateSliderUI(0);
   }
+
+  // 10. About Us Page: Interactive Subnav ScrollSpy & Smooth Jump
+  const aboutSubnavLinks = document.querySelectorAll('.about-subnav-link');
+  const aboutSections = document.querySelectorAll('main#main-content section[id]');
+
+  if (aboutSubnavLinks.length > 0 && aboutSections.length > 0) {
+    const subnavObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.getAttribute('id');
+          aboutSubnavLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${currentId}`) {
+              aboutSubnavLinks.forEach(l => l.classList.remove('active'));
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+    aboutSections.forEach(sec => subnavObserver.observe(sec));
+  }
+
+  // 11. About Us Page: Interactive Tabs Switcher
+  const aboutTabBtns = document.querySelectorAll('.about-tab-btn');
+  const aboutTabContents = document.querySelectorAll('.about-tab-content');
+
+  if (aboutTabBtns.length > 0) {
+    aboutTabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-about-tab');
+        
+        aboutTabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        aboutTabContents.forEach(content => content.classList.remove('active'));
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const targetContent = document.getElementById(targetId);
+        if (targetContent) {
+          targetContent.classList.add('active');
+        }
+      });
+    });
+  }
+
+  // 12. About Us Page: Interactive Arrow Mechanics Playground
+  const arrowTiles = document.querySelectorAll('.arrow-interactive-tile');
+  const arrowExplanation = document.getElementById('arrowLogicExplanation');
+
+  const arrowExplanations = {
+    right: '<strong>➡️ Right Tile:</strong> Forces path exit to the East. When entering from the left, this tile locks in linear momentum and prevents premature upward or downward branching.',
+    down: '<strong>⬇️ Down Tile:</strong> Directs momentum South towards lower board rows. Essential for cascading across multi-tier grid labyrinths without dead-ends.',
+    left: '<strong>⬅️ Left Tile:</strong> Diverts trajectory West. Used as a return loop mechanic to weave back into unvisited perimeter columns.',
+    up: '<strong>⬆️ Up Tile:</strong> Propels path North toward higher grid quadrants. Crucial for reaching the final top-row Exit tile after clearing all intermediate cells.'
+  };
+
+  if (arrowTiles.length > 0 && arrowExplanation) {
+    arrowTiles.forEach(tile => {
+      tile.addEventListener('click', () => {
+        arrowTiles.forEach(t => t.classList.remove('selected'));
+        tile.classList.add('selected');
+        const dir = tile.getAttribute('data-direction');
+        if (arrowExplanations[dir]) {
+          arrowExplanation.innerHTML = arrowExplanations[dir];
+        }
+      });
+    });
+  }
+
+  // 13. About Us Page: Studio FAQ Accordion
+  const faqItems = document.querySelectorAll('.about-faq-item');
+
+  if (faqItems.length > 0) {
+    faqItems.forEach(item => {
+      const btn = item.querySelector('.about-faq-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('active');
+          
+          // Optionally close siblings for single-open accordion feel
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+              const otherBtn = otherItem.querySelector('.about-faq-btn');
+              if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+
+          item.classList.toggle('active', !isOpen);
+          btn.setAttribute('aria-expanded', !isOpen);
+        });
+      }
+    });
+  }
+
+  // 14. About Us Page: Copy Studio Email Button
+  const copyStudioEmailBtn = document.getElementById('copyStudioEmailBtn');
+  const studioCopyToast = document.getElementById('studioCopyToast');
+
+  if (copyStudioEmailBtn && studioCopyToast) {
+    copyStudioEmailBtn.addEventListener('click', async () => {
+      const email = 'reodevelopers@gmail.com';
+      try {
+        await navigator.clipboard.writeText(email);
+        studioCopyToast.textContent = '✓ Studio email copied to clipboard!';
+        studioCopyToast.style.opacity = '1';
+        copyStudioEmailBtn.textContent = '✓ Copied!';
+        setTimeout(() => {
+          studioCopyToast.style.opacity = '0';
+          copyStudioEmailBtn.textContent = '📋 Copy Email';
+        }, 3000);
+      } catch (err) {
+        window.location.href = `mailto:${email}?subject=Arrow%20Brain%20Puzzle%20Studio%20Inquiry`;
+      }
+    });
+  }
 });
+
