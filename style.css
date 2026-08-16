@@ -328,6 +328,13 @@ h1, h2, h3, h4, h5, h6 {
   width: 22px;
   height: 22px;
   flex-shrink: 0;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.btn-lg .btn-icon {
+  width: 26px;
+  height: 26px;
 }
 
 /* --------------------------------------------------------------------------
