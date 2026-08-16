@@ -216,9 +216,9 @@
     <section class="section" id="how-to-play" style="background: rgba(14, 21, 46, 0.4);">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag">Game Rules &amp; Strategy</div>
+          <div class="section-tag">Interactive Guide &amp; Rules</div>
           <h2>How to Play Arrow Brain Puzzle</h2>
-          <p>Simple to learn, deeply engaging to master. Spatial logic, pathfinding, and foresight come together.</p>
+          <p>Simple to learn in seconds, endlessly rewarding to master. Explore the core rules, playable demo, and pro strategies below.</p>
         </div>
 
         <!-- Core Objective Callout -->
@@ -229,125 +229,374 @@
           </p>
         </div>
 
-        <!-- 5 Core Rules Grid -->
-        <div class="how-to-play-grid">
-          <!-- Rule 1 -->
-          <div class="glass-card step-card">
-            <div class="step-badge">1</div>
-            <div class="step-arrow-visual">
-              <span>🟢</span>
-            </div>
-            <h3>Start at Green Cell</h3>
-            <p>Your continuous path always begins at the designated emerald Start tile.</p>
-          </div>
+        <!-- Interactive Tab Navigation Bar -->
+        <div class="htp-tabs-nav" role="tablist" aria-label="How to Play Navigation Tabs">
+          <button class="htp-tab-btn active" data-tab="tab-rules" role="tab" aria-selected="true" aria-controls="tab-rules">
+            <span>🎯 Core Rules &amp; Simulator</span>
+          </button>
+          <button class="htp-tab-btn" data-tab="tab-controls" role="tab" aria-selected="false" aria-controls="tab-controls">
+            <span>🎮 Controls &amp; Hints</span>
+          </button>
+          <button class="htp-tab-btn" data-tab="tab-elements" role="tab" aria-selected="false" aria-controls="tab-elements">
+            <span>🧩 Board Elements</span>
+          </button>
+          <button class="htp-tab-btn" data-tab="tab-chapters" role="tab" aria-selected="false" aria-controls="tab-chapters">
+            <span>🗺️ 10 Chapters &amp; Leagues</span>
+          </button>
+          <button class="htp-tab-btn" data-tab="tab-strategies" role="tab" aria-selected="false" aria-controls="tab-strategies">
+            <span>🧠 Pro Strategy Tips</span>
+          </button>
+        </div>
 
-          <!-- Rule 2 -->
-          <div class="glass-card step-card">
-            <div class="step-badge">2</div>
-            <div class="step-arrow-visual">
-              <span>🗺️</span>
-            </div>
-            <h3>100% Grid Coverage</h3>
-            <p>Visit every single valid arrow cell on the grid. No tiles can be skipped.</p>
-          </div>
+        <!-- TAB 1: Core Rules & Interactive Playable Simulator -->
+        <div class="htp-tab-content active" id="tab-rules" role="tabpanel">
+          <div class="rules-simulator-layout">
+            <!-- Left: 5 Fundamental Rules Stack -->
+            <div class="rules-stack">
+              <div class="rule-row-card">
+                <div class="rule-num-badge">1</div>
+                <div>
+                  <h4>Start at Green Cell (🟢)</h4>
+                  <p>Your continuous path always begins at the designated emerald Start origin tile.</p>
+                </div>
+              </div>
 
-          <!-- Rule 3 -->
-          <div class="glass-card step-card">
-            <div class="step-badge">3</div>
-            <div class="step-arrow-visual">
-              <span>🚫</span>
-            </div>
-            <h3>No Retracing / Cross</h3>
-            <p>Visit each tile only once. Moving over an already visited cell is forbidden.</p>
-          </div>
+              <div class="rule-row-card">
+                <div class="rule-num-badge">2</div>
+                <div>
+                  <h4>100% Grid Coverage (🗺️)</h4>
+                  <p>Visit every single valid arrow cell on the board. No tiles can be skipped.</p>
+                </div>
+              </div>
 
-          <!-- Rule 4 -->
-          <div class="glass-card step-card">
-            <div class="step-badge">4</div>
-            <div class="step-arrow-visual">
-              <span>🏁</span>
-            </div>
-            <h3>Finish at Exit Cell</h3>
-            <p>The very last cell of your unbroken flow line must be the target Exit tile.</p>
-          </div>
+              <div class="rule-row-card">
+                <div class="rule-num-badge">3</div>
+                <div>
+                  <h4>No Retracing or Crossing (🚫)</h4>
+                  <p>Visit each cell exactly once. Moving back over visited tiles or crossing paths is forbidden.</p>
+                </div>
+              </div>
 
-          <!-- Rule 5 -->
-          <div class="glass-card step-card">
-            <div class="step-badge">5</div>
-            <div class="step-arrow-visual">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="5 12 12 5 19 12"></polyline>
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-              </svg>
+              <div class="rule-row-card">
+                <div class="rule-num-badge">4</div>
+                <div>
+                  <h4>Finish at the Exit Cell (🏁)</h4>
+                  <p>The very last cell of your unbroken flow line must be the target Exit tile.</p>
+                </div>
+              </div>
+
+              <div class="rule-row-card">
+                <div class="rule-num-badge">5</div>
+                <div>
+                  <h4>Orthogonal Moves Only (📐)</h4>
+                  <p>Move only horizontally or vertically (Up, Down, Left, Right). No diagonal steps allowed.</p>
+                </div>
+              </div>
             </div>
-            <h3>Orthogonal Moves</h3>
-            <p>Move only horizontally or vertically (Up, Down, Left, Right). No diagonals.</p>
+
+            <!-- Right: Playable Pathfinding Simulator -->
+            <div class="path-simulator-card">
+              <div class="sim-header">
+                <span class="sim-badge">🎮 Playable Path Demo</span>
+                <span class="sim-progress-text" id="simProgressText">1 / 9 Cells (11%)</span>
+              </div>
+
+              <div class="sim-progress-bar-container">
+                <div class="sim-progress-bar-fill" id="simProgressFill"></div>
+              </div>
+
+              <div class="sim-grid" id="pathSimGrid">
+                <!-- Dynamically generated 3x3 path board via script.js -->
+              </div>
+
+              <div class="sim-feedback" id="simFeedback">
+                Tap adjacent tiles from 🟢 Start to fill all cells and reach 🏁 Exit!
+              </div>
+
+              <div class="sim-controls">
+                <button type="button" class="btn btn-secondary" id="simUndoBtn" style="padding: 8px 16px; font-size: 0.86rem;">
+                  <span>↶ Undo Step</span>
+                </button>
+                <button type="button" class="btn btn-secondary" id="simResetBtn" style="padding: 8px 16px; font-size: 0.86rem;">
+                  <span>↺ Reset</span>
+                </button>
+                <button type="button" class="btn btn-primary" id="simAutoSolveBtn" style="padding: 8px 18px; font-size: 0.86rem;">
+                  <span>⚡ Auto-Solve Demo</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Board Elements & Pro Strategy Tips -->
-        <div class="guide-subsections-grid">
-          <!-- Board Elements Legend -->
-          <div class="glass-card guide-block">
-            <h3>🧩 Board Elements &amp; Legend</h3>
-            <div class="legend-list">
-              <div class="legend-item">
-                <div class="legend-icon" style="color: #10b981; border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.1);">🟢</div>
-                <div>
-                  <div class="legend-title">Start Cell (Origin)</div>
-                  <div class="legend-desc">The initial starting cell marked with an emerald marker where your path begins.</div>
+        <!-- TAB 2: Controls & Hints Economy -->
+        <div class="htp-tab-content" id="tab-controls" role="tabpanel">
+          <div class="controls-hints-grid">
+            <!-- Controls Card -->
+            <div class="glass-card guide-block">
+              <h3>🎮 Touch Gestures &amp; Controls</h3>
+              <p style="color: var(--text-secondary); font-size: 0.92rem;">Intuitive mobile controls tailored for effortless, distraction-free puzzle solving:</p>
+              
+              <table class="controls-table">
+                <thead>
+                  <tr>
+                    <th>Action</th>
+                    <th>Gesture</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Continuous Draw</strong></td>
+                    <td><span class="cooldown-pill" style="background: rgba(0,240,255,0.1); color: var(--color-cyan); border-color: rgba(0,240,255,0.3);">Swipe / Drag</span></td>
+                    <td>Hold and drag smoothly across adjacent tiles to draw your active radiant flow.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Step Move</strong></td>
+                    <td><span class="cooldown-pill" style="background: rgba(168,85,247,0.1); color: var(--color-purple); border-color: rgba(168,85,247,0.3);">Single Tap</span></td>
+                    <td>Tap any valid neighbor cell to extend the path by one step.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Undo Step</strong></td>
+                    <td><span class="cooldown-pill">Tap ↶ Button</span></td>
+                    <td>Retracts the path by one tile without resetting the entire board.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Restart Board</strong></td>
+                    <td><span class="cooldown-pill">Tap ↺ Button</span></td>
+                    <td>Resets the puzzle back to the initial starting cell with 0 moves drawn.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Request Hint</strong></td>
+                    <td><span class="cooldown-pill" style="background: rgba(16,185,129,0.1); color: var(--color-emerald); border-color: rgba(16,185,129,0.3);">Tap 💡 Button</span></td>
+                    <td>Reveals the guaranteed optimal next tile on the board.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Hints System Card -->
+            <div class="glass-card guide-block">
+              <h3>💡 Hints &amp; Recovery Economy</h3>
+              <p style="color: var(--text-secondary); font-size: 0.92rem;">Fair, balanced assistance mechanisms to help you when encountering difficult bottlenecks:</p>
+              
+              <table class="controls-table">
+                <thead>
+                  <tr>
+                    <th>Hint Method</th>
+                    <th>Cost</th>
+                    <th>Allowance &amp; Recharge Cooldown</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>🪙 Coin Hint</strong></td>
+                    <td>30 Coins</td>
+                    <td>3 Instant Hints per cycle &bull; <span class="cooldown-pill">5-min Recharge</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>🎬 Rewarded Video #1</strong></td>
+                    <td>Free</td>
+                    <td>1st Free Hint &bull; <span class="cooldown-pill">03:00 Cooldown</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>🎬 Rewarded Video #2</strong></td>
+                    <td>Free</td>
+                    <td>2nd Free Hint &bull; <span class="cooldown-pill">05:00 Cooldown</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>🎬 Rewarded Video #3</strong></td>
+                    <td>Free</td>
+                    <td>3rd Free Hint &bull; <span class="cooldown-pill">10:00 Cooldown</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>🎬 Rewarded Video #4–5</strong></td>
+                    <td>Free</td>
+                    <td>4th &amp; 5th Free Hint &bull; <span class="cooldown-pill">30:00 Cooldown (Max 5/day)</span></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div style="margin-top: 18px; padding: 12px 16px; background: rgba(0, 240, 255, 0.05); border-left: 3px solid var(--color-cyan); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--text-secondary);">
+                <strong>Automatic Stuck Modal:</strong> If your path leaves isolated unvisited cells with zero legal exits, the game detects the dead-end and prompts you to Undo or Hint immediately.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: Board Elements & Legend -->
+        <div class="htp-tab-content" id="tab-elements" role="tabpanel">
+          <div class="guide-subsections-grid">
+            <div class="glass-card guide-block">
+              <h3>🧩 Core Board Legend</h3>
+              <div class="legend-list">
+                <div class="legend-item">
+                  <div class="legend-icon" style="color: #10b981; border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.1);">🟢</div>
+                  <div>
+                    <div class="legend-title">Start Cell (Origin)</div>
+                    <div class="legend-desc">Marked with an emerald glowing beacon. Always the starting point of your flow path.</div>
+                  </div>
+                </div>
+
+                <div class="legend-item">
+                  <div class="legend-icon" style="color: var(--color-cyan);">➡️</div>
+                  <div>
+                    <div class="legend-title">Arrow Flow Indicators</div>
+                    <div class="legend-desc">Grid tiles providing directional orientation cues to assist your spatial reasoning.</div>
+                  </div>
+                </div>
+
+                <div class="legend-item">
+                  <div class="legend-icon" style="color: var(--text-muted); border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);">⬛</div>
+                  <div>
+                    <div class="legend-title">Grid Obstacles &amp; Voids</div>
+                    <div class="legend-desc">Inactive or blocked obstacles that cannot be entered, shaping intricate labyrinth corridors.</div>
+                  </div>
+                </div>
+
+                <div class="legend-item">
+                  <div class="legend-icon" style="color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.1);">🏁</div>
+                  <div>
+                    <div class="legend-title">Exit Cell (Final Destination)</div>
+                    <div class="legend-desc">The designated finish tile where your 100% complete continuous line must conclude.</div>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div class="legend-item">
-                <div class="legend-icon" style="color: var(--color-cyan);">➡️</div>
-                <div>
-                  <div class="legend-title">Arrow Indicators</div>
-                  <div class="legend-desc">Tiles providing directional flow cues to help guide your spatial trajectory.</div>
+            <div class="glass-card guide-block">
+              <h3>✨ Visual Effects &amp; Scoring</h3>
+              <div class="legend-list">
+                <div class="legend-item">
+                  <div class="legend-icon" style="color: #c084fc; border-color: rgba(168,85,247,0.3); background: rgba(168,85,247,0.1);">✨</div>
+                  <div>
+                    <div class="legend-title">Radiant Neon Trail</div>
+                    <div class="legend-desc">The glowing continuous stroke that traces your swipe path across the board in real time.</div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="legend-item">
-                <div class="legend-icon" style="color: var(--text-muted); border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);">⬛</div>
-                <div>
-                  <div class="legend-title">Grid Obstacles &amp; Voids</div>
-                  <div class="legend-desc">Inactive or blocked tiles that create intricate mazes and cannot be entered.</div>
+                <div class="legend-item">
+                  <div class="legend-icon" style="color: #fbbf24; border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.1);">⭐⭐⭐</div>
+                  <div>
+                    <div class="legend-title">3-Star Perfect Rating</div>
+                    <div class="legend-desc">Awarded for solving the board with 0 hints used, optimal path efficiency, and fast solve time.</div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="legend-item">
-                <div class="legend-icon" style="color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.1);">🏁</div>
-                <div>
-                  <div class="legend-title">Exit Cell (Finish Target)</div>
-                  <div class="legend-desc">The designated goal tile where your 100% path must conclude to complete the stage.</div>
+                <div class="legend-item">
+                  <div class="legend-icon" style="color: #38bdf8; border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.1);">🛡️</div>
+                  <div>
+                    <div class="legend-title">Streak Freeze Shield</div>
+                    <div class="legend-desc">Protects your Daily Challenge streak in case you miss a calendar day of play.</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Master Strategies & Pro Tips -->
-          <div class="glass-card guide-block">
-            <h3>🧠 Master Strategies &amp; Pro Tips</h3>
-            <div class="strategy-tips-list">
-              <div class="strategy-card">
-                <div class="strategy-title">🎯 1. Identify Forced Corner Moves First</div>
-                <div class="strategy-desc">Corner tiles with only one entrance and exit must follow those exact neighbors. Route these early!</div>
+        <!-- TAB 4: 10 Chapters Roadmap & Leagues Ladder -->
+        <div class="htp-tab-content" id="tab-chapters" role="tabpanel">
+          <div style="margin-bottom: 36px;">
+            <h3 style="font-size: 1.35rem; margin-bottom: 16px; text-align: center;">🗺️ 100 Handcrafted Levels Across 10 Chapters</h3>
+            <div class="chapters-grid">
+              <div class="chapter-card">
+                <div class="chapter-num">Chapter 01</div>
+                <h4>The Awakening</h4>
+                <div class="chapter-grid-size">3×3 Grid</div>
+                <div class="chapter-tier">🟢 Easy Tier</div>
               </div>
 
-              <div class="strategy-card purple-border">
-                <div class="strategy-title">🏁 2. Work Backwards from Exit</div>
-                <div class="strategy-desc">Identify which tile must precede the Exit so you don't accidentally step on it too early.</div>
+              <div class="chapter-card">
+                <div class="chapter-num">Chapter 02</div>
+                <h4>Gentle Curves</h4>
+                <div class="chapter-grid-size">4×4 Grid</div>
+                <div class="chapter-tier">🟢 Easy Tier</div>
               </div>
 
-              <div class="strategy-card amber-border">
-                <div class="strategy-title">🏝️ 3. Avoid Isolated "Islands"</div>
-                <div class="strategy-desc">Never cut off groups of unvisited cells without remaining entry and exit routes. Keep open tiles connected.</div>
+              <div class="chapter-card">
+                <div class="chapter-num">Chapter 03</div>
+                <h4>Maze Pathways</h4>
+                <div class="chapter-grid-size">4×5 Grid</div>
+                <div class="chapter-tier">🟡 Medium Tier</div>
               </div>
 
-              <div class="strategy-card emerald-border">
-                <div class="strategy-title">↶ 4. Use Undo (↶) Over Full Restarts</div>
-                <div class="strategy-desc">Retract 2–3 moves instead of restarting the entire board to stay on track for a 3-star rating.</div>
+              <div class="chapter-card">
+                <div class="chapter-num">Chapter 04</div>
+                <h4>Arrow Vortex</h4>
+                <div class="chapter-grid-size">5×5 Grid</div>
+                <div class="chapter-tier">🟡 Medium Tier</div>
               </div>
+
+              <div class="chapter-card">
+                <div class="chapter-num">Chapter 05</div>
+                <h4>Tactical Corners</h4>
+                <div class="chapter-grid-size">5×6 Grid</div>
+                <div class="chapter-tier">🟠 Hard Tier</div>
+              </div>
+
+              <div class="chapter-card">
+                <div class="chapter-num">Chapter 06</div>
+                <h4>Labyrinth Arrows</h4>
+                <div class="chapter-grid-size">6×6 Grid</div>
+                <div class="chapter-tier">🟠 Hard Tier</div>
+              </div>
+
+              <div class="chapter-card">
+                <div class="chapter-num">Chapter 07</div>
+                <h4>Master Strategist</h4>
+                <div class="chapter-grid-size">6×7 Grid</div>
+                <div class="chapter-tier">🔴 Expert Tier</div>
+              </div>
+
+              <div class="chapter-card">
+                <div class="chapter-num">Chapter 08</div>
+                <h4>The Grand Grid</h4>
+                <div class="chapter-grid-size">7×7 Grid</div>
+                <div class="chapter-tier">🔴 Expert Tier</div>
+              </div>
+
+              <div class="chapter-card">
+                <div class="chapter-num">Chapter 09</div>
+                <h4>Nexus of Flow</h4>
+                <div class="chapter-grid-size">7×8 Grid</div>
+                <div class="chapter-tier">🟣 Master Tier</div>
+              </div>
+
+              <div class="chapter-card" style="border-color: rgba(251,191,36,0.4); background: rgba(30, 24, 50, 0.8);">
+                <div class="chapter-num" style="color: #fbbf24;">Chapter 10</div>
+                <h4>Ultimate Enigma</h4>
+                <div class="chapter-grid-size" style="background: rgba(251,191,36,0.15); color: #fbbf24;">8×8 Grid</div>
+                <div class="chapter-tier">👑 Legend Tier</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: Master Strategies & Pro Tips -->
+        <div class="htp-tab-content" id="tab-strategies" role="tabpanel">
+          <div class="strategies-grid">
+            <div class="strategy-full-card">
+              <h4>🎯 1. Identify Forced Corner Moves First</h4>
+              <p>When a corner or edge tile has only <strong>one way in and one way out</strong>, your path must enter and exit through those exact neighbors. Spot these early to establish firm anchors for your solution.</p>
+              <div class="strategy-takeaway">✓ Anchor corners before drawing long loops</div>
+            </div>
+
+            <div class="strategy-full-card purple">
+              <h4>🏁 2. Work Backwards from the Exit Tile</h4>
+              <p>Look at the Exit (🏁). How many adjacent open cells connect to it? Knowing which tile must immediately precede the Exit prevents you from accidentally closing off the exit route too early.</p>
+              <div class="strategy-takeaway">✓ Protect the Exit predecessor tile</div>
+            </div>
+
+            <div class="strategy-full-card amber">
+              <h4>🏝️ 3. Avoid Isolated "Island" Cells</h4>
+              <p>When drawing a line through the center of the grid, make sure you don't cut off a group of unvisited cells so they have no remaining entry/exit points. The remaining open cells must always form a connected shape.</p>
+              <div class="strategy-takeaway">✓ Never slice the board into disconnected pockets</div>
+            </div>
+
+            <div class="strategy-full-card emerald">
+              <h4>↶ 4. Use Undo (↶) Over Full Restarts</h4>
+              <p>When you realize you've created a dead-end, tap <strong>Undo</strong> 2 or 3 times to back out of the trap rather than resetting the whole board. This saves time and keeps you on track for a 3-star rating!</p>
+              <div class="strategy-takeaway">✓ Smart retractions preserve your star score</div>
             </div>
           </div>
         </div>

@@ -134,7 +134,236 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 5. Copy Support Info Template (Contact Page)
+  // 5. Interactive How to Play Tabs
+  const tabBtns = document.querySelectorAll('.htp-tab-btn');
+  const tabPanes = document.querySelectorAll('.htp-tab-content');
+
+  if (tabBtns.length > 0) {
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+        
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const activePane = document.getElementById(targetTab);
+        if (activePane) {
+          activePane.classList.add('active');
+        }
+      });
+    });
+  }
+
+  // 6. Interactive Playable Pathfinding Simulator in How to Play
+  const simGrid = document.getElementById('pathSimGrid');
+  const simProgressText = document.getElementById('simProgressText');
+  const simProgressFill = document.getElementById('simProgressFill');
+  const simFeedback = document.getElementById('simFeedback');
+  const simUndoBtn = document.getElementById('simUndoBtn');
+  const simResetBtn = document.getElementById('simResetBtn');
+  const simAutoSolveBtn = document.getElementById('simAutoSolveBtn');
+
+  if (simGrid) {
+    // 3x3 Grid Definition
+    const gridLayout = [
+      { id: 0, type: 'start', icon: '🟢', label: 'Start' },
+      { id: 1, type: 'arrow', icon: '➡️', label: 'Right' },
+      { id: 2, type: 'arrow', icon: '⬇️', label: 'Down' },
+      { id: 3, type: 'arrow', icon: '➡️', label: 'Right' },
+      { id: 4, type: 'exit',  icon: '🏁', label: 'Exit' },
+      { id: 5, type: 'arrow', icon: '⬇️', label: 'Down' },
+      { id: 6, type: 'arrow', icon: '⬆️', label: 'Up' },
+      { id: 7, type: 'arrow', icon: '⬅️', label: 'Left' },
+      { id: 8, type: 'arrow', icon: '⬅️', label: 'Left' }
+    ];
+
+    // Adjacency Graph (Orthogonal: Up, Down, Left, Right)
+    const adjGraph = {
+      0: [1, 3],
+      1: [0, 2, 4],
+      2: [1, 5],
+      3: [0, 4, 6],
+      4: [1, 3, 5, 7],
+      5: [2, 4, 8],
+      6: [3, 7],
+      7: [6, 4, 8],
+      8: [5, 7]
+    };
+
+    // Guaranteed Hamiltonian continuous path solution
+    const solutionPath = [0, 1, 2, 5, 8, 7, 6, 3, 4];
+
+    let currentPath = [0];
+    let autoSolveTimer = null;
+
+    const updateSimUI = (feedbackMsg, isError = false) => {
+      const totalTiles = gridLayout.length;
+      const count = currentPath.length;
+      const pct = Math.round((count / totalTiles) * 100);
+
+      if (simProgressText) simProgressText.textContent = `${count} / ${totalTiles} Cells (${pct}%)`;
+      if (simProgressFill) simProgressFill.style.width = `${pct}%`;
+
+      if (simFeedback && feedbackMsg) {
+        simFeedback.textContent = feedbackMsg;
+        simFeedback.style.color = isError ? 'var(--color-rose)' : 'var(--color-cyan)';
+      }
+
+      // Render tiles
+      const tileEls = simGrid.querySelectorAll('.sim-tile');
+      tileEls.forEach((el, idx) => {
+        const pathIndex = currentPath.indexOf(idx);
+        const stepNumEl = el.querySelector('.tile-step-num');
+
+        if (pathIndex !== -1) {
+          el.classList.add('visited');
+          if (stepNumEl) stepNumEl.textContent = `#${pathIndex + 1}`;
+        } else {
+          el.classList.remove('visited');
+          if (stepNumEl) stepNumEl.textContent = '';
+        }
+
+        // Highlight head
+        if (currentPath[currentPath.length - 1] === idx) {
+          el.classList.add('current-head');
+        } else {
+          el.classList.remove('current-head');
+        }
+      });
+    };
+
+    const handleTileClick = (targetId) => {
+      if (autoSolveTimer) {
+        clearInterval(autoSolveTimer);
+        autoSolveTimer = null;
+      }
+
+      const currentHead = currentPath[currentPath.length - 1];
+
+      // If already current head
+      if (targetId === currentHead) return;
+
+      // If clicked previous step -> Undo to it
+      if (currentPath.length > 1 && targetId === currentPath[currentPath.length - 2]) {
+        currentPath.pop();
+        updateSimUI('Step undone. Choose next adjacent tile.');
+        return;
+      }
+
+      // Check if already visited elsewhere
+      if (currentPath.includes(targetId)) {
+        updateSimUI('⚠️ Tile already visited! No crossing allowed.', true);
+        return;
+      }
+
+      // Check adjacency
+      const validNeighbors = adjGraph[currentHead] || [];
+      if (!validNeighbors.includes(targetId)) {
+        updateSimUI('⚠️ Must move to adjacent horizontal or vertical cell!', true);
+        return;
+      }
+
+      // Check if target is exit but not all tiles visited
+      if (gridLayout[targetId].type === 'exit' && currentPath.length < gridLayout.length - 1) {
+        updateSimUI('⚠️ Cannot enter Exit yet! Fill 100% of the board first.', true);
+        return;
+      }
+
+      // Valid move
+      currentPath.push(targetId);
+
+      if (currentPath.length === gridLayout.length) {
+        updateSimUI('🎉 100% Complete! Connected Start to Exit! ⭐⭐⭐ 3 Stars!');
+      } else {
+        updateSimUI(`Step ${currentPath.length} drawn. Keep connecting!`);
+      }
+    };
+
+    const initSim = () => {
+      currentPath = [0];
+      simGrid.innerHTML = '';
+
+      gridLayout.forEach((item, idx) => {
+        const tile = document.createElement('div');
+        tile.className = `sim-tile ${item.type === 'start' ? 'start-tile' : item.type === 'exit' ? 'exit-tile' : ''}`;
+        tile.setAttribute('data-id', item.id);
+        tile.setAttribute('role', 'button');
+        tile.setAttribute('tabindex', '0');
+        tile.setAttribute('aria-label', `${item.label} cell`);
+        tile.innerHTML = `
+          <span class="tile-icon">${item.icon}</span>
+          <span class="tile-step-num"></span>
+        `;
+
+        tile.addEventListener('click', () => handleTileClick(idx));
+        tile.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleTileClick(idx);
+          }
+        });
+
+        simGrid.appendChild(tile);
+      });
+
+      updateSimUI('Tap adjacent tiles from 🟢 Start to fill all cells and reach 🏁 Exit!');
+    };
+
+    initSim();
+
+    if (simUndoBtn) {
+      simUndoBtn.addEventListener('click', () => {
+        if (currentPath.length > 1) {
+          currentPath.pop();
+          updateSimUI('Step undone.');
+        }
+      });
+    }
+
+    if (simResetBtn) {
+      simResetBtn.addEventListener('click', () => {
+        if (autoSolveTimer) {
+          clearInterval(autoSolveTimer);
+          autoSolveTimer = null;
+        }
+        currentPath = [0];
+        updateSimUI('Board reset to 🟢 Start. Try drawing the path!');
+      });
+    }
+
+    if (simAutoSolveBtn) {
+      simAutoSolveBtn.addEventListener('click', () => {
+        if (autoSolveTimer) {
+          clearInterval(autoSolveTimer);
+        }
+        currentPath = [0];
+        updateSimUI('Demonstrating continuous flow path...');
+        let stepIdx = 1;
+
+        autoSolveTimer = setInterval(() => {
+          if (stepIdx < solutionPath.length) {
+            currentPath.push(solutionPath[stepIdx]);
+            stepIdx++;
+            if (currentPath.length === solutionPath.length) {
+              updateSimUI('🎉 Perfect 100% path from 🟢 Start to 🏁 Exit!');
+              clearInterval(autoSolveTimer);
+              autoSolveTimer = null;
+            } else {
+              updateSimUI(`Auto-drawing step ${currentPath.length} of ${solutionPath.length}...`);
+            }
+          }
+        }, 400);
+      });
+    }
+  }
+
+  // 7. Copy Support Info Template (Contact Page)
   const copyTemplateBtn = document.getElementById('copyTemplateBtn');
   const templateBox = document.getElementById('supportTemplateText');
   const copyFeedback = document.getElementById('copyFeedback');
@@ -167,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Smooth Scroll with Sticky Header Offset for Anchor Links
+  // 8. Smooth Scroll with Sticky Header Offset for Anchor Links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
