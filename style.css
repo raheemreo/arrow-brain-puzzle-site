@@ -3249,14 +3249,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Player Testimonials / Community Grid */
-.about-reviews-grid {
+.about-reviews-grid,
+.reviews-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 32px;
 }
 
-.about-review-card {
+.about-review-card,
+.review-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
@@ -3267,7 +3269,8 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform var(--transition-normal), border-color var(--transition-normal);
 }
 
-.about-review-card:hover {
+.about-review-card:hover,
+.review-card:hover {
   transform: translateY(-4px);
   border-color: rgba(0, 240, 255, 0.35);
 }
@@ -3530,7 +3533,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
   .craft-gallery-grid,
-  .about-reviews-grid {
+  .about-reviews-grid,
+  .reviews-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -3567,7 +3571,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .craft-gallery-grid,
-  .about-reviews-grid {
+  .about-reviews-grid,
+  .reviews-grid {
     grid-template-columns: 1fr;
   }
 
