@@ -345,94 +345,112 @@
 
         <!-- TAB 2: Controls & Hints Economy -->
         <div class="htp-tab-content" id="tab-controls" role="tabpanel">
-          <div class="controls-hints-grid">
-            <!-- Controls Card -->
-            <div class="glass-card guide-block">
-              <h3>🎮 Touch Gestures &amp; Controls</h3>
-              <p style="color: var(--text-secondary); font-size: 0.92rem;">Intuitive mobile controls tailored for effortless, distraction-free puzzle solving:</p>
-              
-              <table class="controls-table">
-                <thead>
-                  <tr>
-                    <th>Action</th>
-                    <th>Gesture</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Continuous Draw</strong></td>
-                    <td><span class="cooldown-pill" style="background: rgba(0,240,255,0.1); color: var(--color-cyan); border-color: rgba(0,240,255,0.3);">Swipe / Drag</span></td>
-                    <td>Hold and drag smoothly across adjacent tiles to draw your active radiant flow.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Step Move</strong></td>
-                    <td><span class="cooldown-pill" style="background: rgba(168,85,247,0.1); color: var(--color-purple); border-color: rgba(168,85,247,0.3);">Single Tap</span></td>
-                    <td>Tap any valid neighbor cell to extend the path by one step.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Undo Step</strong></td>
-                    <td><span class="cooldown-pill">Tap ↶ Button</span></td>
-                    <td>Retracts the path by one tile without resetting the entire board.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Restart Board</strong></td>
-                    <td><span class="cooldown-pill">Tap ↺ Button</span></td>
-                    <td>Resets the puzzle back to the initial starting cell with 0 moves drawn.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Request Hint</strong></td>
-                    <td><span class="cooldown-pill" style="background: rgba(16,185,129,0.1); color: var(--color-emerald); border-color: rgba(16,185,129,0.3);">Tap 💡 Button</span></td>
-                    <td>Reveals the guaranteed optimal next tile on the board.</td>
-                  </tr>
-                </tbody>
-              </table>
+          <!-- Part A: Touch Controls & Gestures Grid -->
+          <div class="controls-overview-section">
+            <div class="subtab-header">
+              <h3><span>🎮</span> Touch Gestures &amp; Path Controls</h3>
+              <p>Intuitive mobile controls tailored for effortless, distraction-free puzzle solving:</p>
             </div>
 
-            <!-- Hints System Card -->
-            <div class="glass-card guide-block">
-              <h3>💡 Hints &amp; Recovery Economy</h3>
-              <p style="color: var(--text-secondary); font-size: 0.92rem;">Fair, balanced assistance mechanisms to help you when encountering difficult bottlenecks:</p>
-              
-              <table class="controls-table">
-                <thead>
-                  <tr>
-                    <th>Hint Method</th>
-                    <th>Cost</th>
-                    <th>Allowance &amp; Recharge Cooldown</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>🪙 Coin Hint</strong></td>
-                    <td>30 Coins</td>
-                    <td>3 Instant Hints per cycle &bull; <span class="cooldown-pill">5-min Recharge</span></td>
-                  </tr>
-                  <tr>
-                    <td><strong>🎬 Rewarded Video #1</strong></td>
-                    <td>Free</td>
-                    <td>1st Free Hint &bull; <span class="cooldown-pill">03:00 Cooldown</span></td>
-                  </tr>
-                  <tr>
-                    <td><strong>🎬 Rewarded Video #2</strong></td>
-                    <td>Free</td>
-                    <td>2nd Free Hint &bull; <span class="cooldown-pill">05:00 Cooldown</span></td>
-                  </tr>
-                  <tr>
-                    <td><strong>🎬 Rewarded Video #3</strong></td>
-                    <td>Free</td>
-                    <td>3rd Free Hint &bull; <span class="cooldown-pill">10:00 Cooldown</span></td>
-                  </tr>
-                  <tr>
-                    <td><strong>🎬 Rewarded Video #4–5</strong></td>
-                    <td>Free</td>
-                    <td>4th &amp; 5th Free Hint &bull; <span class="cooldown-pill">30:00 Cooldown (Max 5/day)</span></td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="controls-cards-grid">
+              <!-- Card 1: Continuous Flow Swipe -->
+              <div class="control-feature-card cyan-glow">
+                <div class="control-card-top">
+                  <div class="control-icon-box">👆</div>
+                  <span class="control-gesture-pill cyan">Swipe / Drag</span>
+                </div>
+                <h4>Continuous Path Flow</h4>
+                <p>Hold and glide smoothly across adjacent arrow tiles to draw your unbroken glowing path in a fluid, natural motion.</p>
+              </div>
 
-              <div style="margin-top: 18px; padding: 12px 16px; background: rgba(0, 240, 255, 0.05); border-left: 3px solid var(--color-cyan); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--text-secondary);">
-                <strong>Automatic Stuck Modal:</strong> If your path leaves isolated unvisited cells with zero legal exits, the game detects the dead-end and prompts you to Undo or Hint immediately.
+              <!-- Card 2: Single Step Tap -->
+              <div class="control-feature-card purple-glow">
+                <div class="control-card-top">
+                  <div class="control-icon-box">🎯</div>
+                  <span class="control-gesture-pill purple">Single Tap</span>
+                </div>
+                <h4>Step-by-Step Move</h4>
+                <p>Tap any adjacent neighbor cell to advance your path by a single deliberate step with pin-point accuracy.</p>
+              </div>
+
+              <!-- Card 3: Move Retraction (Undo) -->
+              <div class="control-feature-card amber-glow">
+                <div class="control-card-top">
+                  <div class="control-icon-box">↶</div>
+                  <span class="control-gesture-pill amber">Undo Button</span>
+                </div>
+                <h4>Smart Step Retraction</h4>
+                <p>Retract 1 or more steps to back out of a dead-end without losing your progress or resetting your 3-star rating.</p>
+              </div>
+
+              <!-- Card 4: Board Reset -->
+              <div class="control-feature-card rose-glow">
+                <div class="control-card-top">
+                  <div class="control-icon-box">↺</div>
+                  <span class="control-gesture-pill rose">Reset Button</span>
+                </div>
+                <h4>Instant Board Reset</h4>
+                <p>Instantly reset the puzzle back to the initial Start cell when you want a clean slate to explore an alternate route.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Part B: Hints System & Recovery Economy -->
+          <div class="hints-overview-section">
+            <div class="subtab-header">
+              <h3><span>💡</span> Hints &amp; Recovery Economy</h3>
+              <p>Fair, balanced assistance mechanisms ensuring you never get permanently blocked on complex boards:</p>
+            </div>
+
+            <div class="hints-cards-grid">
+              <!-- Card 1: Virtual Coins Hint -->
+              <div class="hint-method-card">
+                <div class="hint-card-header">
+                  <div class="hint-badge-coin">🪙 Coin Hint</div>
+                  <span class="hint-cost-tag">30 Coins</span>
+                </div>
+                <h4>Instant Strategic Guidance</h4>
+                <p>Spends in-game virtual coins to instantly reveal the guaranteed optimal next cell on the active board.</p>
+                <div class="hint-allowance-bar">
+                  <span>Allowance: <strong>3 Instant Hints / Cycle</strong></span>
+                  <span class="cooldown-chip">⏱️ 5-Min Recharge</span>
+                </div>
+              </div>
+
+              <!-- Card 2: Free Rewarded Video Hints -->
+              <div class="hint-method-card">
+                <div class="hint-card-header">
+                  <div class="hint-badge-video">🎬 Free Rewarded Hints</div>
+                  <span class="hint-cost-tag free">100% Free</span>
+                </div>
+                <h4>Tiered Cooldown System</h4>
+                <p>Watch a short sponsor video for a free hint. Progressive cooldowns balance casual and competitive play:</p>
+                
+                <div class="cooldown-ladder-list">
+                  <div class="ladder-step">
+                    <span class="step-num">Hint 1</span>
+                    <span class="step-time">03:00 Cooldown</span>
+                  </div>
+                  <div class="ladder-step">
+                    <span class="step-num">Hint 2</span>
+                    <span class="step-time">05:00 Cooldown</span>
+                  </div>
+                  <div class="ladder-step">
+                    <span class="step-num">Hint 3</span>
+                    <span class="step-time">10:00 Cooldown</span>
+                  </div>
+                  <div class="ladder-step">
+                    <span class="step-num">Hints 4–5</span>
+                    <span class="step-time">30:00 Cooldown (Max 5/Day)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stuck-modal-alert-box">
+              <span class="alert-icon">🚨</span>
+              <div>
+                <strong>Smart Dead-End Detection:</strong> If your active path creates isolated unvisited tiles with zero legal exits, the game detects the dead-end immediately and prompts you to Undo or Hint.
               </div>
             </div>
           </div>
@@ -440,162 +458,154 @@
 
         <!-- TAB 3: Interactive Board Elements & Visual Guide -->
         <div class="htp-tab-content" id="tab-elements" role="tabpanel">
-          <div class="board-elements-layout">
-            <!-- Left: Interactive Visual Board Inspector -->
-            <div class="elements-board-card">
-              <div class="elements-board-header">
-                <span class="sim-badge">🔍 Live Board Inspector</span>
-                <span style="font-size: 0.82rem; color: var(--text-muted);">Tap any element to inspect</span>
+          <div class="board-elements-hero-layout">
+            <!-- Left Side: Interactive 3x3 Grid Board Inspector -->
+            <div class="glass-card board-inspector-card">
+              <div class="inspector-card-top">
+                <div class="section-tag" style="margin-bottom: 0; font-size: 0.76rem; padding: 4px 12px;">Interactive Inspector</div>
+                <span class="inspector-subtext">Tap any tile or card</span>
               </div>
 
-              <!-- 3x3 Elements Board Showcase -->
-              <div class="elements-inspector-grid" id="elementsInspectorGrid">
+              <!-- 3x3 Interactive Showcase Grid -->
+              <div class="interactive-elem-grid" id="elementsInspectorGrid">
                 <!-- Tile 0: Start Origin -->
-                <div class="elem-tile elem-start elem-highlighted" data-type="start" role="button" tabindex="0" aria-label="Inspect Start Cell">
-                  <span class="elem-tile-icon">🟢</span>
-                  <span class="elem-tile-label">Start</span>
-                </div>
+                <button type="button" class="elem-board-tile start-tile elem-highlighted" data-type="start" aria-label="Inspect Start Cell">
+                  <span class="tile-icon">🟢</span>
+                  <span class="tile-tag">Start</span>
+                </button>
                 <!-- Tile 1: Arrow Right -->
-                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
-                  <span class="elem-tile-icon">➡️</span>
-                  <span class="elem-tile-label">Flow</span>
-                </div>
+                <button type="button" class="elem-board-tile" data-type="arrow" aria-label="Inspect Arrow Indicator">
+                  <span class="tile-icon">➡️</span>
+                  <span class="tile-tag">Flow</span>
+                </button>
                 <!-- Tile 2: Arrow Down -->
-                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
-                  <span class="elem-tile-icon">⬇️</span>
-                  <span class="elem-tile-label">Flow</span>
-                </div>
+                <button type="button" class="elem-board-tile" data-type="arrow" aria-label="Inspect Arrow Indicator">
+                  <span class="tile-icon">⬇️</span>
+                  <span class="tile-tag">Flow</span>
+                </button>
                 <!-- Tile 3: Arrow Up -->
-                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
-                  <span class="elem-tile-icon">⬆️</span>
-                  <span class="elem-tile-label">Flow</span>
-                </div>
-                <!-- Tile 4: Obstacle / Void -->
-                <div class="elem-tile elem-obstacle" data-type="obstacle" role="button" tabindex="0" aria-label="Inspect Obstacle">
-                  <span class="elem-tile-icon">⬛</span>
-                  <span class="elem-tile-label">Barrier</span>
-                </div>
+                <button type="button" class="elem-board-tile" data-type="arrow" aria-label="Inspect Arrow Indicator">
+                  <span class="tile-icon">⬆️</span>
+                  <span class="tile-tag">Flow</span>
+                </button>
+                <!-- Tile 4: Obstacle Void -->
+                <button type="button" class="elem-board-tile obstacle-tile" data-type="obstacle" aria-label="Inspect Obstacle">
+                  <span class="tile-icon">⬛</span>
+                  <span class="tile-tag">Barrier</span>
+                </button>
                 <!-- Tile 5: Arrow Down -->
-                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
-                  <span class="elem-tile-icon">⬇️</span>
-                  <span class="elem-tile-label">Flow</span>
-                </div>
-                <!-- Tile 6: Exit Cell -->
-                <div class="elem-tile elem-exit" data-type="exit" role="button" tabindex="0" aria-label="Inspect Exit Cell">
-                  <span class="elem-tile-icon">🏁</span>
-                  <span class="elem-tile-label">Exit</span>
-                </div>
+                <button type="button" class="elem-board-tile" data-type="arrow" aria-label="Inspect Arrow Indicator">
+                  <span class="tile-icon">⬇️</span>
+                  <span class="tile-tag">Flow</span>
+                </button>
+                <!-- Tile 6: Exit Goal -->
+                <button type="button" class="elem-board-tile exit-tile" data-type="exit" aria-label="Inspect Exit Cell">
+                  <span class="tile-icon">🏁</span>
+                  <span class="tile-tag">Exit</span>
+                </button>
                 <!-- Tile 7: Arrow Left -->
-                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
-                  <span class="elem-tile-icon">⬅️</span>
-                  <span class="elem-tile-label">Flow</span>
-                </div>
+                <button type="button" class="elem-board-tile" data-type="arrow" aria-label="Inspect Arrow Indicator">
+                  <span class="tile-icon">⬅️</span>
+                  <span class="tile-tag">Flow</span>
+                </button>
                 <!-- Tile 8: Arrow Left -->
-                <div class="elem-tile elem-arrow" data-type="arrow" role="button" tabindex="0" aria-label="Inspect Arrow Indicator">
-                  <span class="elem-tile-icon">⬅️</span>
-                  <span class="elem-tile-label">Flow</span>
-                </div>
+                <button type="button" class="elem-board-tile" data-type="arrow" aria-label="Inspect Arrow Indicator">
+                  <span class="tile-icon">⬅️</span>
+                  <span class="tile-tag">Flow</span>
+                </button>
               </div>
 
-              <!-- Inspector Feedback Info Panel -->
-              <div class="elem-inspector-panel" id="elemInspectorPanel">
-                <div class="elem-panel-header" id="inspectorHeader">
+              <!-- Live Element Dynamic Inspector Panel -->
+              <div class="element-info-display-box" id="elemInspectorPanel">
+                <div class="info-header" id="inspectorHeader">
                   <span>🟢</span> <span>Start Cell (Path Origin)</span>
                 </div>
-                <p class="elem-panel-desc" id="inspectorDesc">
+                <p class="info-body" id="inspectorDesc">
                   The designated emerald origin beacon. Your unbroken path always begins here. Once you move away from the start cell, you cannot step on it again.
                 </p>
               </div>
             </div>
 
-            <!-- Right: Interactive Clickable Element Detail Cards -->
-            <div class="element-cards-stack">
+            <!-- Right Side: Clean Element Action Cards Stack -->
+            <div class="elements-catalog-stack">
               <!-- Element 1: Start Cell -->
-              <div class="element-detail-card emerald-edge active" data-type="start" tabindex="0" role="button">
-                <div class="elem-card-header">
-                  <div class="elem-card-title-wrap">
-                    <span class="elem-card-icon">🟢</span>
-                    <span class="elem-card-title">Start Cell (Origin)</span>
+              <div class="element-showcase-card emerald-accent active" data-type="start" tabindex="0" role="button">
+                <div class="showcase-card-head">
+                  <div class="showcase-title">
+                    <span class="icon">🟢</span>
+                    <h4>Start Cell (Origin)</h4>
                   </div>
-                  <span class="elem-tag-badge" style="color: #10b981; border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.1);">Origin Anchor</span>
+                  <span class="element-role-pill emerald">Origin Anchor</span>
                 </div>
-                <p class="elem-card-body">
-                  Marked with an emerald glowing beacon. The continuous line always originates here. You cannot re-enter the start cell once left.
-                </p>
-                <span class="elem-pro-tip">💡 Pro Tip: Begin every puzzle by scanning the available exits leaving this cell.</span>
+                <p>Marked with an emerald glowing beacon. The continuous line always originates here. You cannot re-enter the start cell once left.</p>
+                <div class="showcase-pro-tip">💡 <strong>Pro Tip:</strong> Begin every puzzle by scanning the available exits leaving this cell.</div>
               </div>
 
               <!-- Element 2: Arrow Indicators -->
-              <div class="element-detail-card" data-type="arrow" tabindex="0" role="button">
-                <div class="elem-card-header">
-                  <div class="elem-card-title-wrap">
-                    <span class="elem-card-icon">➡️</span>
-                    <span class="elem-card-title">Arrow Flow Indicators</span>
+              <div class="element-showcase-card cyan-accent" data-type="arrow" tabindex="0" role="button">
+                <div class="showcase-card-head">
+                  <div class="showcase-title">
+                    <span class="icon">➡️</span>
+                    <h4>Arrow Flow Indicators</h4>
                   </div>
-                  <span class="elem-tag-badge">Directional Cue</span>
+                  <span class="element-role-pill cyan">Directional Cue</span>
                 </div>
-                <p class="elem-card-body">
-                  Strategic tiles providing directional orientation cues. They guide your visual trajectory and help identify forced moves and natural loops.
-                </p>
-                <span class="elem-pro-tip">💡 Pro Tip: Arrow tiles in corners have restricted paths—solve them first!</span>
+                <p>Strategic directional indicators embedded across the board. They guide your visual trajectory and help spot single-solution loops.</p>
+                <div class="showcase-pro-tip">💡 <strong>Pro Tip:</strong> Look for corners with only 1 valid entry and 1 exit route first.</div>
               </div>
 
               <!-- Element 3: Obstacles & Inactive Voids -->
-              <div class="element-detail-card" data-type="obstacle" tabindex="0" role="button">
-                <div class="elem-card-header">
-                  <div class="elem-card-title-wrap">
-                    <span class="elem-card-icon">⬛</span>
-                    <span class="elem-card-title">Grid Obstacles &amp; Voids</span>
+              <div class="element-showcase-card gray-accent" data-type="obstacle" tabindex="0" role="button">
+                <div class="showcase-card-head">
+                  <div class="showcase-title">
+                    <span class="icon">⬛</span>
+                    <h4>Grid Obstacles &amp; Voids</h4>
                   </div>
-                  <span class="elem-tag-badge" style="color: var(--text-muted); border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);">Impassable Barrier</span>
+                  <span class="element-role-pill gray">Impassable Barrier</span>
                 </div>
-                <p class="elem-card-body">
-                  Blocked or inactive tiles that cannot be entered. They carve intricate maze channels, bottleneck corridors, and complex routing challenges.
-                </p>
-                <span class="elem-pro-tip">💡 Pro Tip: Treat obstacles as boundaries to find forced one-way passages.</span>
+                <p>Blocked or inactive cells that cannot be entered. They shape intricate maze channels, bottleneck passages, and dead-end traps.</p>
+                <div class="showcase-pro-tip">💡 <strong>Pro Tip:</strong> Use obstacle edges as natural rails to route the outer loop of the puzzle.</div>
               </div>
 
               <!-- Element 4: Exit Cell -->
-              <div class="element-detail-card amber-edge" data-type="exit" tabindex="0" role="button">
-                <div class="elem-card-header">
-                  <div class="elem-card-title-wrap">
-                    <span class="elem-card-icon">🏁</span>
-                    <span class="elem-card-title">Exit Cell (Finish Target)</span>
+              <div class="element-showcase-card amber-accent" data-type="exit" tabindex="0" role="button">
+                <div class="showcase-card-head">
+                  <div class="showcase-title">
+                    <span class="icon">🏁</span>
+                    <h4>Exit Target (Finish Cell)</h4>
                   </div>
-                  <span class="elem-tag-badge" style="color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.1);">100% Goal</span>
+                  <span class="element-role-pill amber">100% Goal</span>
                 </div>
-                <p class="elem-card-body">
-                  The designated final target marked with a checkered flag. You must visit 100% of all other arrow tiles before entering the Exit.
-                </p>
-                <span class="elem-pro-tip">💡 Pro Tip: Work backwards from the Exit to protect its entry neighbor from premature steps.</span>
+                <p>The designated finish tile marked with a checkered flag. You must visit 100% of all valid arrow cells before entering the Exit!</p>
+                <div class="showcase-pro-tip">💡 <strong>Pro Tip:</strong> Work backwards from the Exit to protect its preceding entry neighbor.</div>
               </div>
             </div>
           </div>
 
           <!-- Secondary Visual FX, Scoring & Boosters Cards -->
-          <div class="elements-fx-grid">
-            <div class="element-fx-card">
-              <div class="element-fx-icon" style="color: var(--color-purple);">✨</div>
+          <div class="board-fx-row">
+            <div class="glass-card fx-highlight-card">
+              <span class="fx-icon">✨</span>
               <h4>Radiant Neon Trail</h4>
-              <p>The luminous continuous stroke tracing your swipe path in real time. Unlock custom neon themes in the Coin Shop.</p>
+              <p>Real-time continuous glowing path stroke with unlockable color themes in the Coin Shop.</p>
             </div>
 
-            <div class="element-fx-card">
-              <div class="element-fx-icon" style="color: #fbbf24;">⭐⭐⭐</div>
+            <div class="glass-card fx-highlight-card">
+              <span class="fx-icon">⭐⭐⭐</span>
               <h4>3-Star Perfect Rating</h4>
-              <p>Awarded for 100% path efficiency with 0 hints used. Preserved by using Undo rather than full board resets.</p>
+              <p>Awarded for 100% path coverage with zero hints used and optimal solve speed.</p>
             </div>
 
-            <div class="element-fx-card">
-              <div class="element-fx-icon" style="color: #38bdf8;">🛡️</div>
+            <div class="glass-card fx-highlight-card">
+              <span class="fx-icon">🛡️</span>
               <h4>Streak Freeze Shield</h4>
-              <p>Protects your consecutive Daily Challenge streak if you miss a day, safeguarding your trophy milestones.</p>
+              <p>Protects your consecutive Daily Challenge streak if you miss a calendar day of play.</p>
             </div>
 
-            <div class="element-fx-card">
-              <div class="element-fx-icon" style="color: #10b981;">💡</div>
+            <div class="glass-card fx-highlight-card">
+              <span class="fx-icon">💡</span>
               <h4>Dynamic Hint Spotlight</h4>
-              <p>Instantly illuminates the guaranteed optimal next cell on the board when encountering challenging bottlenecks.</p>
+              <p>Instantly illuminates the single guaranteed optimal next move on the active board.</p>
             </div>
           </div>
         </div>

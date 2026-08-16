@@ -299,8 +299,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 6. Interactive Board Elements Inspector (Tab 3)
-  const elemTiles = document.querySelectorAll('.elem-tile');
-  const elemCards = document.querySelectorAll('.element-detail-card');
+  const elemTiles = document.querySelectorAll('.elem-board-tile, .elem-tile');
+  const elemCards = document.querySelectorAll('.element-showcase-card, .element-detail-card');
   const inspectorHeader = document.getElementById('inspectorHeader');
   const inspectorDesc = document.getElementById('inspectorDesc');
 
@@ -378,12 +378,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const type = tile.getAttribute('data-type');
         selectBoardElement(type);
       });
+      tile.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const type = tile.getAttribute('data-type');
+          selectBoardElement(type);
+        }
+      });
     });
 
     elemCards.forEach(card => {
       card.addEventListener('click', () => {
         const type = card.getAttribute('data-type');
         selectBoardElement(type);
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const type = card.getAttribute('data-type');
+          selectBoardElement(type);
+        }
       });
     });
   }
